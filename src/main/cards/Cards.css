@@ -1,0 +1,24 @@
+.c-cards {
+  flex-basis: 80%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  color: rgba(255,255,255,0.9);
+}
+
+.c-card-items {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.c-card-items__card {
+  width: 17.5%;
+  margin: 0.5%;
+}
+
+
+.c-card-items__image {
+  max-width: 100%;
+}
+
