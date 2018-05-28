@@ -1,3 +1,65 @@
+Magical Flash Cards
+===============
+
+One of the greatest parts of Magic: the Gathering is the ability to interact with your opponent on not only your turn but your opponents' as well. However, not all cards have the ability to do so. Only cards with 'Flash' or the card type 'Instant' may be played outside of your turn.
+This app provides a handy list of all cards that may trick you. You can use this app to learn and familiarise yourself with what your wily opponents may be holding.
+
+
+Features
+--------
+
+As a player I want to know all instants that are available so that I can learn them and play around them.
+As a player I want to know all instants that are available at a certain cost.
+I want to be able to sort them by colour.
+I want to be able to type in a mana cost and see what cards are playable.
+
+## Cards
+  * I can show/hide cards of a colour.
+  * I can type in a mana cost and see what can be played.
+  * I can type in a name and see cards matching the name.
+  * I can use a cmc slider to see cards between a certain cmc range.
+  * I can show/hide cards of different rarities.
+  * I can sort the cards by colour.
+  * I can sort the cards by cmc.
+
+## Tests
+  * Filtering by mana cost:
+    * [ ] There should be a filters object on state
+    * [ ] There is an input field for mana cost
+      * [ ] it should render correctly
+      * [ ] it should only accept a valid mana cost
+      * [ ] it should call onChange when changed (set mana cost filter)
+      * [ ] it should filter cards according to the provided manaCost
+    * [ ] There should be a formatManaCost function
+      * [ ] it should convert mana costs to be usable
+    * [ ] Cards should have their mana cost be filterable
+      * [ ] There should be a ensureFilterableManaCost function
+        * [ ] it should format the costs into a filterable string
+  
+  * Toggling colours:
+    * [ ] There are toggles for colours
+      * [ ] Pressing a toggle should hide/show the cards of that colour
+        * [ ] Adjust the filters object
+  
+  * [ ] There is an input field for name:
+    * [ ] It should set the text filter
+    * [ ] It should only take valid characters
+
+  * [ ] There is a slider for cmc
+    * [ ] it should render correctly
+    * [ ] it should set a filter
+  
+  * [ ] There are toggles for rarities
+    * [ ] they should render correctly
+
+  * [ ] There is a button to sort card by colour
+    * [ ] it should render correctly
+
+  * [ ] There is a button to sort cards by cmc
+    * [ ] it should render correctly
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
