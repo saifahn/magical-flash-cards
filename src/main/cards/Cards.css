@@ -22,3 +22,27 @@
   max-width: 100%;
 }
 
+.c-card-items__name, .c-card-items__mana-cost,
+.c-card-items__text {
+  display: none;
+}
+
+.is-grid .c-card-items {
+  width: 50%;
+}
+
+.is-grid .c-card-items__card {
+  width: 100%;
+  border: 1px solid grey;
+  padding: 0 2.25rem;
+}
+
+.is-grid .c-card-items__name, .is-grid .c-card-items__mana-cost,
+.is-grid .c-card-items__text {
+  display: block;
+}
+
+.is-grid .c-card-items__image {
+  display: none;
+}
+
