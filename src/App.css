@@ -1,5 +1,13 @@
 body {
-  background-color: #695E66;
+  background-color: #D3AD97;
+}
+
+.c-button {
+  border: 0;
+  background-color: white;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  font-family: 'Oxygen Mono', sans-serif; 
 }
 
 /*

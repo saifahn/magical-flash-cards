@@ -3,11 +3,21 @@ import './Navigation.css';
 import Colors from './Colors';
 
 const Sorter = props => (
-  <button onClick={props.sortByCMC}>Sort by CMC</button>
+  <button
+    onClick={props.sortByCMC}
+    className="c-button"
+  >
+    Sort by CMC
+  </button>
 );
 
 const ColorSorter = props => (
-  <button onClick={props.sortByColor}>Sort by Color</button>
+  <button
+    onClick={props.sortByColor}
+    className="c-button"
+  >
+    Sort by Color
+  </button>
 );
 
 const Navigation = props => (
@@ -16,7 +26,12 @@ const Navigation = props => (
     <Colors onClick={props.onClick} />
     <Sorter sortByCMC={props.sortByCMC} />
     <ColorSorter sortByColor={props.sortByColor} />
-    <button onClick={props.toggleGrid}>Grid Toggle</button>
+    <button
+      onClick={props.toggleGrid}
+      className="c-button"
+    >
+      Grid Toggle
+    </button>
   </section>
 );
 
