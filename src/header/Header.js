@@ -5,6 +5,6 @@ const Header = () => (
   <header>
     <h1 className="c-brand">Magical Flash Cards</h1>
   </header>
-)
+);
 
 export default Header;

@@ -11,13 +11,18 @@ class Main extends Component {
     grid: true,
   }
 
+  componentDidMount() {
+    const baseUrl = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3ARIX';
+    this.fetchCards(baseUrl);
+  }
+
   onClick = (param) => {
     this.toggleColor(param);
     this.filterCards();
   }
 
   toggleColor(color) {
-    var colors = this.state.colors;
+    const { colors } = this.state;
     const index = colors.indexOf(color);
     if (index < 0) {
       colors.push(color);
@@ -25,61 +30,58 @@ class Main extends Component {
     if (index >= 0) {
       colors.splice(index, 1);
     }
-    this.setState({ colors: colors });
+    this.setState({ colors });
   }
 
   filterCards() {
-    var cards = this.state.cards;
-    var currentColors = this.state.colors;
-    const result = cards.filter(function(card) {
-      for (var i = 0; i < card.colors.length; i++) {
-        if (currentColors.includes(card.colors[i])) {
-          return true;
-        }
-      }
-    });
+    const { cards, colors } = this.state;
+    const result = cards.filter(card => (
+      card.colors.some(color => colors.includes(color))
+    ));
     this.setState({ cardsToShow: result });
   }
 
   sortByCMC = () => {
-    var res = this.state.cardsToShow.sort(function(a, b) {
-      return a.cmc - b.cmc;
-    });
-    this.setState({ cardsToShow: res });
+    const { cardsToShow } = this.state;
+    cardsToShow.sort((a, b) => (
+      a.cmc - b.cmc
+    ));
+    this.setState({ cardsToShow });
   }
 
   sortByColor = () => {
-    var res = this.state.cardsToShow.sort(function(a, b) {
+    // function to help in the sort
+    const assignNumToColor = (card) => {
+      let res;
+      switch (card.colors[0]) {
+        case 'W':
+          res = 1;
+          break;
+        case 'U':
+          res = 2;
+          break;
+        case 'B':
+          res = 3;
+          break;
+        case 'R':
+          res = 4;
+          break;
+        case 'G':
+          res = 5;
+          break;
+        default:
+          return false;
+      }
+      return res;
+    };
+
+    const { cardsToShow } = this.state;
+    cardsToShow.sort((a, b) => {
       const aC = assignNumToColor(a);
       const bC = assignNumToColor(b);
       return aC - bC;
     });
-
-    this.setState({ cardsToShow: res });
-
-    // function to help in the sort
-    function assignNumToColor(card) {
-      var res;
-      switch(card.colors[0]) {
-        case "W":
-          res = 1;
-          break;
-        case "U":
-          res = 2;
-          break;
-        case "B":
-          res = 3;
-          break;
-        case "R":
-          res = 4;
-          break;
-        case "G":
-          res = 5;
-          break;
-      }
-      return res;
-    }
-
+    this.setState({ cardsToShow });
   }
 
   toggleGrid = () => {
@@ -93,18 +95,13 @@ class Main extends Component {
       .catch(error => console.log(error));
   }
 
-  storeCards = data => {
-    const cards = data.data.map( card => {
+  storeCards = (data) => {
+    const cards = data.data.map((card) => {
       const { image_uris, name, id, colors, cmc, mana_cost, oracle_text } = card;
       return { image_uris, name, id, colors, cmc, mana_cost, oracle_text };
-    })
-    this.setState({ cards })
-    this.setState({ cardsToShow: cards })
-  }
-
-  componentDidMount() {
-    const baseUrl = `https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3ARIX`;
-    this.fetchCards(baseUrl);
+    });
+    this.setState({ cards });
+    this.setState({ cardsToShow: cards });
   }
 
   render() {
