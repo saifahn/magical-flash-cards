@@ -2,27 +2,56 @@ import React, { Component } from 'react';
 import './Main.css';
 import Navigation from './navigation/Navigation';
 import Cards from './cards/Cards';
+import dummyData from '../data.json';
 
 class Main extends Component {
   state = {
     cards: [],
-    colors: ['W', 'U', 'B', 'R', 'G'],
+    filters: {
+      colors: ['W', 'U', 'B', 'R', 'G'],
+      mana: '',
+    },
     cardsToShow: [],
     grid: true,
   }
 
   componentDidMount() {
-    const baseUrl = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3ARIX';
-    this.fetchCards(baseUrl);
+    // const baseUrl = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3ADOM';
+    // this.fetchCards(baseUrl);
+    this.storeCards(dummyData);
   }
+
 
   onClick = (param) => {
     this.toggleColor(param);
     this.filterCards();
   }
 
+  formatManaCost = (cost) => {
+    const re = /[{}]/g;
+    return cost.replace(re, '');
+  }
+
+  formatManaCostToColorObject = (cost) => {
+    const re = /[\d{}]/g;
+    const formattedCost = cost.replace(re, '');
+    // make the object
+    const manaObject = {
+      W: 0,
+      U: 0,
+      B: 0,
+      R: 0,
+      G: 0,
+    };
+    for (let i = 0, n = formattedCost.length; i < n; i += 1) {
+      // add one of the appropriate color
+      manaObject[formattedCost[i]] += 1;
+    }
+    return manaObject;
+  }
+
   toggleColor(color) {
-    const { colors } = this.state;
+    const { colors } = this.state.filters;
     const index = colors.indexOf(color);
     if (index < 0) {
       colors.push(color);
@@ -30,15 +59,70 @@ class Main extends Component {
     if (index >= 0) {
       colors.splice(index, 1);
     }
-    this.setState({ colors });
+    this.setState({ filters: { colors } });
+  }
+
+  setManaFilter = (mana) => {
+    // this.setState(() => (
+    //   {
+    //     filters:
+    //     {
+    //       ...this.state.filters,
+    //       mana,
+    //     },
+    //   }
+    // ));
+    this.setState(({
+      filters: {
+        ...this.state.filters,
+        mana,
+      },
+    }), () => {
+      this.filterCards();
+    });
   }
 
   filterCards() {
-    const { cards, colors } = this.state;
-    const result = cards.filter(card => (
+    const { cards } = this.state;
+    const { colors, mana } = this.state.filters;
+    let cardsToShow = cards.filter(card => (
       card.colors.some(color => colors.includes(color))
     ));
-    this.setState({ cardsToShow: result });
+    if (mana) {
+      cardsToShow = cardsToShow.filter(card => (
+        this.filterCardByMana(card, mana)
+      ));
+    }
+    this.setState({ cardsToShow });
+  }
+
+  filterCardByMana = (card, mana) => {
+    /**
+     * @param card: the card to be filtered
+     * @param mana: state.filters.mana
+     */
+    // if the mana has a generic number
+    const genericNum = mana.match(/\d/);
+    let filterCMC;
+    if (genericNum) {
+      filterCMC = (genericNum.length - 1) + parseInt(genericNum, 10);
+    } else {
+      filterCMC = mana.length;
+    }
+    // console.log(filterCMC);
+    if (filterCMC < card.cmc) {
+      return false;
+    }
+    const cardCost = this.formatManaCostToColorObject(card.mana_cost);
+    const manaCost = this.formatManaCostToColorObject(mana);
+    const colors = Object.keys(cardCost);
+    for (let i = 0, n = colors.length; i < n; i += 1) {
+      if (cardCost[colors[i]] > manaCost[colors[i]]) {
+        return false;
+      }
+    }
+    // console.log('not filtered');
+    return true;
   }
 
   sortByCMC = () => {
@@ -77,9 +161,9 @@ class Main extends Component {
 
     const { cardsToShow } = this.state;
     cardsToShow.sort((a, b) => {
-      const aC = assignNumToColor(a);
-      const bC = assignNumToColor(b);
-      return aC - bC;
+      const aColor = assignNumToColor(a);
+      const bColor = assignNumToColor(b);
+      return aColor - bColor;
     });
     this.setState({ cardsToShow });
   }
@@ -88,12 +172,12 @@ class Main extends Component {
     this.setState({ grid: !this.state.grid });
   }
 
-  fetchCards(url) {
-    fetch(url)
-      .then(response => response.json())
-      .then(data => this.storeCards(data))
-      .catch(error => console.log(error));
-  }
+  // fetchCards(url) {
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => this.storeCards(data))
+  //     .catch(error => console.log(error));
+  // }
 
   storeCards = (data) => {
     const cards = data.data.map((card) => {
@@ -112,6 +196,7 @@ class Main extends Component {
           sortByCMC={this.sortByCMC}
           sortByColor={this.sortByColor}
           toggleGrid={this.toggleGrid}
+          setManaFilter={this.setManaFilter}
         />
         <Cards
           cards={this.state.cardsToShow}

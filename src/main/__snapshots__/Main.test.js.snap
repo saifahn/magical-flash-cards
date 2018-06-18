@@ -1,0 +1,670 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<main>
+  <Navigation
+    onClick={[Function]}
+    setManaFilter={[Function]}
+    sortByCMC={[Function]}
+    sortByColor={[Function]}
+    toggleGrid={[Function]}
+  />
+  <Cards
+    cards={
+      Array [
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "W",
+          ],
+          "id": "3dfb8817-ca3c-44ba-92f2-e9d6294cd25d",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/2.jpg?1525862131",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/2.jpg?1525862131",
+            "large": "https://img.scryfall.com/cards/large/en/dom/2.jpg?1525862131",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/2.jpg?1525862131",
+            "png": "https://img.scryfall.com/cards/png/en/dom/2.png?1525862131",
+            "small": "https://img.scryfall.com/cards/small/en/dom/2.jpg?1525862131",
+          },
+          "mana_cost": "{1}{W}",
+          "name": "Adamant Will",
+          "oracle_text": "Target creature gets +2/+2 and gains indestructible until end of turn. (Damage and effects that say \\"destroy\\" don't destroy it.)",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "G",
+          ],
+          "id": "b6a3b223-b232-4da3-9431-ccb4688d5941",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/154.jpg?1524791537",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/154.jpg?1524791537",
+            "large": "https://img.scryfall.com/cards/large/en/dom/154.jpg?1524791537",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/154.jpg?1524791537",
+            "png": "https://img.scryfall.com/cards/png/en/dom/154.png?1524791537",
+            "small": "https://img.scryfall.com/cards/small/en/dom/154.jpg?1524791537",
+          },
+          "mana_cost": "{1}{G}",
+          "name": "Ancient Animus",
+          "oracle_text": "Put a +1/+1 counter on target creature you control if it's legendary. Then it fights target creature an opponent controls. (Each deals damage equal to its power to the other.)",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "G",
+          ],
+          "id": "bceb365c-5de6-47ae-b42d-7fbce7781f8e",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/155.jpg?1524791545",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/155.jpg?1524791545",
+            "large": "https://img.scryfall.com/cards/large/en/dom/155.jpg?1524791545",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/155.jpg?1524791545",
+            "png": "https://img.scryfall.com/cards/png/en/dom/155.png?1524791545",
+            "small": "https://img.scryfall.com/cards/small/en/dom/155.jpg?1524791545",
+          },
+          "mana_cost": "{G}",
+          "name": "Arbor Armament",
+          "oracle_text": "Put a +1/+1 counter on target creature. That creature gains reach until end of turn.",
+        },
+        Object {
+          "cmc": 3,
+          "colors": Array [
+            "U",
+          ],
+          "id": "88858285-23ac-4d7e-b8dd-a20982d95a2d",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/45.jpg?1524790444",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/45.jpg?1524790444",
+            "large": "https://img.scryfall.com/cards/large/en/dom/45.jpg?1524790444",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/45.jpg?1524790444",
+            "png": "https://img.scryfall.com/cards/png/en/dom/45.png?1524790444",
+            "small": "https://img.scryfall.com/cards/small/en/dom/45.jpg?1524790444",
+          },
+          "mana_cost": "{2}{U}",
+          "name": "Befuddle",
+          "oracle_text": "Target creature gets -4/-0 until end of turn.
+      Draw a card.",
+        },
+        Object {
+          "cmc": 5,
+          "colors": Array [
+            "W",
+          ],
+          "id": "4cf3eb65-0f52-49c1-8243-14ce05de9f3b",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/7.jpg?1525862134",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/7.jpg?1525862134",
+            "large": "https://img.scryfall.com/cards/large/en/dom/7.jpg?1525862134",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/7.jpg?1525862134",
+            "png": "https://img.scryfall.com/cards/png/en/dom/7.png?1525862134",
+            "small": "https://img.scryfall.com/cards/small/en/dom/7.jpg?1525862134",
+          },
+          "mana_cost": "{4}{W}",
+          "name": "Blessed Light",
+          "oracle_text": "Exile target creature or enchantment.",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "B",
+          ],
+          "id": "d224940c-d87c-4317-9ca3-b704ef894a7b",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/77.jpg?1524790744",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/77.jpg?1524790744",
+            "large": "https://img.scryfall.com/cards/large/en/dom/77.jpg?1524790744",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/77.jpg?1524790744",
+            "png": "https://img.scryfall.com/cards/png/en/dom/77.png?1524790744",
+            "small": "https://img.scryfall.com/cards/small/en/dom/77.jpg?1524790744",
+          },
+          "mana_cost": "{B}",
+          "name": "Blessing of Belzenlok",
+          "oracle_text": "Target creature gets +2/+1 until end of turn. If it's legendary, it also gains lifelink until end of turn.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "U",
+          ],
+          "id": "ab830392-4d7e-4b45-93cf-35ed1e935228",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/46.jpg?1524790452",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/46.jpg?1524790452",
+            "large": "https://img.scryfall.com/cards/large/en/dom/46.jpg?1524790452",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/46.jpg?1524790452",
+            "png": "https://img.scryfall.com/cards/png/en/dom/46.png?1524790452",
+            "small": "https://img.scryfall.com/cards/small/en/dom/46.jpg?1524790452",
+          },
+          "mana_cost": "{1}{U}",
+          "name": "Blink of an Eye",
+          "oracle_text": "Kicker {1}{U} (You may pay an additional {1}{U} as you cast this spell.)
+      Return target nonland permanent to its owner's hand. If this spell was kicked, draw a card.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "B",
+          ],
+          "id": "116ce944-6871-4f51-a889-d9c4a5d7cff2",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/81.jpg?1524790780",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/81.jpg?1524790780",
+            "large": "https://img.scryfall.com/cards/large/en/dom/81.jpg?1524790780",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/81.jpg?1524790780",
+            "png": "https://img.scryfall.com/cards/png/en/dom/81.png?1524790780",
+            "small": "https://img.scryfall.com/cards/small/en/dom/81.jpg?1524790780",
+          },
+          "mana_cost": "{1}{B}",
+          "name": "Cast Down",
+          "oracle_text": "Destroy target nonlegendary creature.",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "W",
+          ],
+          "id": "000eded9-854c-408a-aadf-c26209e27432",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/10.jpg?1525862305",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/10.jpg?1525862305",
+            "large": "https://img.scryfall.com/cards/large/en/dom/10.jpg?1525862305",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/10.jpg?1525862305",
+            "png": "https://img.scryfall.com/cards/png/en/dom/10.png?1525862305",
+            "small": "https://img.scryfall.com/cards/small/en/dom/10.jpg?1525862305",
+          },
+          "mana_cost": "{W}",
+          "name": "Charge",
+          "oracle_text": "Creatures you control get +1/+1 until end of turn.",
+        },
+        Object {
+          "cmc": 4,
+          "colors": Array [
+            "B",
+          ],
+          "id": "71cbedc6-482e-42de-b310-22d3a955ad7e",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/83.jpg?1524790796",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/83.jpg?1524790796",
+            "large": "https://img.scryfall.com/cards/large/en/dom/83.jpg?1524790796",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/83.jpg?1524790796",
+            "png": "https://img.scryfall.com/cards/png/en/dom/83.png?1524790796",
+            "small": "https://img.scryfall.com/cards/small/en/dom/83.jpg?1524790796",
+          },
+          "mana_cost": "{3}{B}",
+          "name": "Dark Bargain",
+          "oracle_text": "Look at the top three cards of your library. Put two of them into your hand and the other into your graveyard. Dark Bargain deals 2 damage to you.",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "R",
+          ],
+          "id": "e4f76e51-a726-4a5f-ae2b-2e826e89f5f7",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/117.jpg?1524791147",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/117.jpg?1524791147",
+            "large": "https://img.scryfall.com/cards/large/en/dom/117.jpg?1524791147",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/117.jpg?1524791147",
+            "png": "https://img.scryfall.com/cards/png/en/dom/117.png?1524791147",
+            "small": "https://img.scryfall.com/cards/small/en/dom/117.jpg?1524791147",
+          },
+          "mana_cost": "{R}",
+          "name": "Fervent Strike",
+          "oracle_text": "Target creature gets +1/+0 and gains first strike and haste until end of turn.",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "B",
+          ],
+          "id": "a3f6baa5-666d-40b0-82e8-b0df10ff3cdd",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/94.jpg?1524790909",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/94.jpg?1524790909",
+            "large": "https://img.scryfall.com/cards/large/en/dom/94.jpg?1524790909",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/94.jpg?1524790909",
+            "png": "https://img.scryfall.com/cards/png/en/dom/94.png?1524790909",
+            "small": "https://img.scryfall.com/cards/small/en/dom/94.jpg?1524790909",
+          },
+          "mana_cost": "{B}",
+          "name": "Fungal Infection",
+          "oracle_text": "Target creature gets -1/-1 until end of turn. Create a 1/1 green Saproling creature token.",
+        },
+        Object {
+          "cmc": 5,
+          "colors": Array [
+            "B",
+            "R",
+          ],
+          "id": "ae9c1471-ae6f-4b66-9842-46f1a74e93b5",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/194.jpg?1524791949",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/194.jpg?1524791949",
+            "large": "https://img.scryfall.com/cards/large/en/dom/194.jpg?1524791949",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/194.jpg?1524791949",
+            "png": "https://img.scryfall.com/cards/png/en/dom/194.png?1524791949",
+            "small": "https://img.scryfall.com/cards/small/en/dom/194.jpg?1524791949",
+          },
+          "mana_cost": "{3}{B}{R}",
+          "name": "Garna, the Bloodflame",
+          "oracle_text": "Flash
+      When Garna, the Bloodflame enters the battlefield, return to your hand all creature cards in your graveyard that were put there from anywhere this turn.
+      Other creatures you control have haste.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "W",
+          ],
+          "id": "7b771f44-ce32-41a2-b219-738924b7f42d",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/19.jpg?1524790173",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/19.jpg?1524790173",
+            "large": "https://img.scryfall.com/cards/large/en/dom/19.jpg?1524790173",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/19.jpg?1524790173",
+            "png": "https://img.scryfall.com/cards/png/en/dom/19.png?1524790173",
+            "small": "https://img.scryfall.com/cards/small/en/dom/19.jpg?1524790173",
+          },
+          "mana_cost": "{1}{W}",
+          "name": "Gideon's Reproach",
+          "oracle_text": "Gideon's Reproach deals 4 damage to target attacking or blocking creature.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "G",
+          ],
+          "id": "7a3f8878-5928-47ec-bb31-f4ee24ad982b",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/163.jpg?1524791621",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/163.jpg?1524791621",
+            "large": "https://img.scryfall.com/cards/large/en/dom/163.jpg?1524791621",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/163.jpg?1524791621",
+            "png": "https://img.scryfall.com/cards/png/en/dom/163.png?1524791621",
+            "small": "https://img.scryfall.com/cards/small/en/dom/163.jpg?1524791621",
+          },
+          "mana_cost": "{1}{G}",
+          "name": "Gift of Growth",
+          "oracle_text": "Kicker {2} (You may pay an additional {2} as you cast this spell.)
+      Untap target creature. It gets +2/+2 until end of turn. If this spell was kicked, that creature gets +4/+4 until end of turn instead.",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "W",
+          ],
+          "id": "f7512d31-dc35-4046-a1ba-49b74239c329",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/20.jpg?1524790182",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/20.jpg?1524790182",
+            "large": "https://img.scryfall.com/cards/large/en/dom/20.jpg?1524790182",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/20.jpg?1524790182",
+            "png": "https://img.scryfall.com/cards/png/en/dom/20.png?1524790182",
+            "small": "https://img.scryfall.com/cards/small/en/dom/20.jpg?1524790182",
+          },
+          "mana_cost": "{W}",
+          "name": "Healing Grace",
+          "oracle_text": "Prevent the next 3 damage that would be dealt to any target this turn by a source of your choice. You gain 3 life.",
+        },
+        Object {
+          "cmc": 3,
+          "colors": Array [
+            "W",
+          ],
+          "id": "7ffe72ae-ea5c-4065-9f5b-3d931f72952d",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/22.jpg?1524790198",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/22.jpg?1524790198",
+            "large": "https://img.scryfall.com/cards/large/en/dom/22.jpg?1524790198",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/22.jpg?1524790198",
+            "png": "https://img.scryfall.com/cards/png/en/dom/22.png?1524790198",
+            "small": "https://img.scryfall.com/cards/small/en/dom/22.jpg?1524790198",
+          },
+          "mana_cost": "{2}{W}",
+          "name": "Invoke the Divine",
+          "oracle_text": "Destroy target artifact or enchantment. You gain 4 life.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "U",
+          ],
+          "id": "359b2f2b-7b58-47b6-b00c-8616f981e3a3",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/56.jpg?1524790555",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/56.jpg?1524790555",
+            "large": "https://img.scryfall.com/cards/large/en/dom/56.jpg?1524790555",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/56.jpg?1524790555",
+            "png": "https://img.scryfall.com/cards/png/en/dom/56.png?1524790555",
+            "small": "https://img.scryfall.com/cards/small/en/dom/56.jpg?1524790555",
+          },
+          "mana_cost": "{U}{U}",
+          "name": "Merfolk Trickster",
+          "oracle_text": "Flash
+      When Merfolk Trickster enters the battlefield, tap target creature an opponent controls. It loses all abilities until end of turn.",
+        },
+        Object {
+          "cmc": 4,
+          "colors": Array [
+            "U",
+          ],
+          "id": "57168712-73dc-411c-9d13-f0c43202cb9a",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/59.jpg?1524790581",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/59.jpg?1524790581",
+            "large": "https://img.scryfall.com/cards/large/en/dom/59.jpg?1524790581",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/59.jpg?1524790581",
+            "png": "https://img.scryfall.com/cards/png/en/dom/59.png?1524790581",
+            "small": "https://img.scryfall.com/cards/small/en/dom/59.jpg?1524790581",
+          },
+          "mana_cost": "{2}{U}{U}",
+          "name": "Naru Meha, Master Wizard",
+          "oracle_text": "Flash
+      When Naru Meha, Master Wizard enters the battlefield, copy target instant or sorcery spell you control. You may choose new targets for the copy.
+      Other Wizards you control get +1/+1.",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "U",
+          ],
+          "id": "25f2e4d0-effd-4e83-b7aa-1a0d8f120951",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/60.jpg?1524790589",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/60.jpg?1524790589",
+            "large": "https://img.scryfall.com/cards/large/en/dom/60.jpg?1524790589",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/60.jpg?1524790589",
+            "png": "https://img.scryfall.com/cards/png/en/dom/60.png?1524790589",
+            "small": "https://img.scryfall.com/cards/small/en/dom/60.jpg?1524790589",
+          },
+          "mana_cost": "{U}",
+          "name": "Opt",
+          "oracle_text": "Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)
+      Draw a card.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "G",
+          ],
+          "id": "df491512-ba8a-4ba5-ad42-338190201170",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/176.jpg?1524791754",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/176.jpg?1524791754",
+            "large": "https://img.scryfall.com/cards/large/en/dom/176.jpg?1524791754",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/176.jpg?1524791754",
+            "png": "https://img.scryfall.com/cards/png/en/dom/176.png?1524791754",
+            "small": "https://img.scryfall.com/cards/small/en/dom/176.jpg?1524791754",
+          },
+          "mana_cost": "{1}{G}",
+          "name": "Pierce the Sky",
+          "oracle_text": "Pierce the Sky deals 7 damage to target creature with flying.",
+        },
+        Object {
+          "cmc": 4,
+          "colors": Array [
+            "R",
+          ],
+          "id": "94454128-92f1-475d-abc4-c235f501eeb6",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/138.jpg?1525862551",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/138.jpg?1525862551",
+            "large": "https://img.scryfall.com/cards/large/en/dom/138.jpg?1525862551",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/138.jpg?1525862551",
+            "png": "https://img.scryfall.com/cards/png/en/dom/138.png?1525862551",
+            "small": "https://img.scryfall.com/cards/small/en/dom/138.jpg?1525862551",
+          },
+          "mana_cost": "{3}{R}",
+          "name": "Radiating Lightning",
+          "oracle_text": "Radiating Lightning deals 3 damage to target player and 1 damage to each creature that player controls.",
+        },
+        Object {
+          "cmc": 4,
+          "colors": Array [
+            "U",
+            "W",
+          ],
+          "id": "674070e3-6efe-45e4-aff6-e4a49ec2106e",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/202.jpg?1524792034",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/202.jpg?1524792034",
+            "large": "https://img.scryfall.com/cards/large/en/dom/202.jpg?1524792034",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/202.jpg?1524792034",
+            "png": "https://img.scryfall.com/cards/png/en/dom/202.png?1524792034",
+            "small": "https://img.scryfall.com/cards/small/en/dom/202.jpg?1524792034",
+          },
+          "mana_cost": "{2}{W}{U}",
+          "name": "Raff Capashen, Ship's Mage",
+          "oracle_text": "Flash
+      Flying
+      You may cast historic spells as though they had flash. (Artifacts, legendaries, and Sagas are historic.)",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "U",
+          ],
+          "id": "08050607-b558-4f99-b716-bbbab54e9b68",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/63.jpg?1524790616",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/63.jpg?1524790616",
+            "large": "https://img.scryfall.com/cards/large/en/dom/63.jpg?1524790616",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/63.jpg?1524790616",
+            "png": "https://img.scryfall.com/cards/png/en/dom/63.png?1524790616",
+            "small": "https://img.scryfall.com/cards/small/en/dom/63.jpg?1524790616",
+          },
+          "mana_cost": "{U}",
+          "name": "Rescue",
+          "oracle_text": "Return target permanent you control to its owner's hand.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "R",
+          ],
+          "id": "d3f2aa2c-deec-4927-a2d6-f5dce5967e26",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/140.jpg?1524791390",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/140.jpg?1524791390",
+            "large": "https://img.scryfall.com/cards/large/en/dom/140.jpg?1524791390",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/140.jpg?1524791390",
+            "png": "https://img.scryfall.com/cards/png/en/dom/140.png?1524791390",
+            "small": "https://img.scryfall.com/cards/small/en/dom/140.jpg?1524791390",
+          },
+          "mana_cost": "{1}{R}",
+          "name": "Run Amok",
+          "oracle_text": "Target attacking creature gets +3/+3 and gains trample until end of turn.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "W",
+          ],
+          "id": "8f8d6588-671d-4eb3-874f-f7139da2e05a",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/31.jpg?1524790290",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/31.jpg?1524790290",
+            "large": "https://img.scryfall.com/cards/large/en/dom/31.jpg?1524790290",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/31.jpg?1524790290",
+            "png": "https://img.scryfall.com/cards/png/en/dom/31.png?1524790290",
+            "small": "https://img.scryfall.com/cards/small/en/dom/31.jpg?1524790290",
+          },
+          "mana_cost": "{1}{W}",
+          "name": "Seal Away",
+          "oracle_text": "Flash
+      When Seal Away enters the battlefield, exile target tapped creature an opponent controls until Seal Away leaves the battlefield.",
+        },
+        Object {
+          "cmc": 5,
+          "colors": Array [
+            "U",
+          ],
+          "id": "7da73230-2562-4e7d-9f03-b0508b9a31e0",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/65.jpg?1524790636",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/65.jpg?1524790636",
+            "large": "https://img.scryfall.com/cards/large/en/dom/65.jpg?1524790636",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/65.jpg?1524790636",
+            "png": "https://img.scryfall.com/cards/png/en/dom/65.png?1524790636",
+            "small": "https://img.scryfall.com/cards/small/en/dom/65.jpg?1524790636",
+          },
+          "mana_cost": "{4}{U}",
+          "name": "Sentinel of the Pearl Trident",
+          "oracle_text": "Flash
+      When Sentinel of the Pearl Trident enters the battlefield, you may exile target historic permanent you control. If you do, return that card to the battlefield under its owner's control at the beginning of the next end step. (Artifacts, legendaries, and Sagas are historic.)",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "R",
+          ],
+          "id": "21b9d339-99ed-4923-8f56-be37f29a0bfa",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/142.jpg?1524791410",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/142.jpg?1524791410",
+            "large": "https://img.scryfall.com/cards/large/en/dom/142.jpg?1524791410",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/142.jpg?1524791410",
+            "png": "https://img.scryfall.com/cards/png/en/dom/142.png?1524791410",
+            "small": "https://img.scryfall.com/cards/small/en/dom/142.jpg?1524791410",
+          },
+          "mana_cost": "{R}",
+          "name": "Shivan Fire",
+          "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)
+      Shivan Fire deals 2 damage to target creature. If this spell was kicked, it deals 4 damage to that creature instead.",
+        },
+        Object {
+          "cmc": 4,
+          "colors": Array [
+            "G",
+          ],
+          "id": "b2314215-23af-4c8e-860f-b029e151af36",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/180.jpg?1524791798",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/180.jpg?1524791798",
+            "large": "https://img.scryfall.com/cards/large/en/dom/180.jpg?1524791798",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/180.jpg?1524791798",
+            "png": "https://img.scryfall.com/cards/png/en/dom/180.png?1524791798",
+            "small": "https://img.scryfall.com/cards/small/en/dom/180.jpg?1524791798",
+          },
+          "mana_cost": "{3}{G}",
+          "name": "Spore Swarm",
+          "oracle_text": "Create three 1/1 green Saproling creature tokens.",
+        },
+        Object {
+          "cmc": 1,
+          "colors": Array [
+            "U",
+          ],
+          "id": "f81739a5-35a7-4812-a7af-e1951bf5579c",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/67.jpg?1524790655",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/67.jpg?1524790655",
+            "large": "https://img.scryfall.com/cards/large/en/dom/67.jpg?1524790655",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/67.jpg?1524790655",
+            "png": "https://img.scryfall.com/cards/png/en/dom/67.png?1524790655",
+            "small": "https://img.scryfall.com/cards/small/en/dom/67.jpg?1524790655",
+          },
+          "mana_cost": "{X}{U}",
+          "name": "Syncopate",
+          "oracle_text": "Counter target spell unless its controller pays {X}. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.",
+        },
+        Object {
+          "cmc": 3,
+          "colors": Array [
+            "U",
+          ],
+          "id": "97da6607-9131-4f8b-8af3-63439a59b78b",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/72.jpg?1524790700",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/72.jpg?1524790700",
+            "large": "https://img.scryfall.com/cards/large/en/dom/72.jpg?1524790700",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/72.jpg?1524790700",
+            "png": "https://img.scryfall.com/cards/png/en/dom/72.png?1524790700",
+            "small": "https://img.scryfall.com/cards/small/en/dom/72.jpg?1524790700",
+          },
+          "mana_cost": "{2}{U}",
+          "name": "Unwind",
+          "oracle_text": "Counter target noncreature spell. Untap up to three lands.",
+        },
+        Object {
+          "cmc": 2,
+          "colors": Array [
+            "B",
+          ],
+          "id": "aaed7828-57c1-4ad3-a91b-209c66f0876b",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/110.jpg?1524791071",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/110.jpg?1524791071",
+            "large": "https://img.scryfall.com/cards/large/en/dom/110.jpg?1524791071",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/110.jpg?1524791071",
+            "png": "https://img.scryfall.com/cards/png/en/dom/110.png?1524791071",
+            "small": "https://img.scryfall.com/cards/small/en/dom/110.jpg?1524791071",
+          },
+          "mana_cost": "{1}{B}",
+          "name": "Vicious Offering",
+          "oracle_text": "Kicker—Sacrifice a creature. (You may sacrifice a creature in addition to any other costs as you cast this spell.)
+      Target creature gets -2/-2 until end of turn. If this spell was kicked, that creature gets -5/-5 until end of turn instead.",
+        },
+        Object {
+          "cmc": 4,
+          "colors": Array [
+            "G",
+          ],
+          "id": "eb75cf21-08be-4b92-bdf6-014a36090738",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/188.jpg?1524791885",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/188.jpg?1524791885",
+            "large": "https://img.scryfall.com/cards/large/en/dom/188.jpg?1524791885",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/188.jpg?1524791885",
+            "png": "https://img.scryfall.com/cards/png/en/dom/188.png?1524791885",
+            "small": "https://img.scryfall.com/cards/small/en/dom/188.jpg?1524791885",
+          },
+          "mana_cost": "{3}{G}",
+          "name": "Wild Onslaught",
+          "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)
+      Put a +1/+1 counter on each creature you control. If this spell was kicked, put two +1/+1 counters on each creature you control instead.",
+        },
+        Object {
+          "cmc": 3,
+          "colors": Array [
+            "R",
+          ],
+          "id": "59bf371a-164c-4db8-9207-197c2e7c3c10",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/152.jpg?1524791518",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/152.jpg?1524791518",
+            "large": "https://img.scryfall.com/cards/large/en/dom/152.jpg?1524791518",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/152.jpg?1524791518",
+            "png": "https://img.scryfall.com/cards/png/en/dom/152.png?1524791518",
+            "small": "https://img.scryfall.com/cards/small/en/dom/152.jpg?1524791518",
+          },
+          "mana_cost": "{2}{R}",
+          "name": "Wizard's Lightning",
+          "oracle_text": "This spell costs {2} less to cast if you control a Wizard.
+      Wizard's Lightning deals 3 damage to any target.",
+        },
+        Object {
+          "cmc": 3,
+          "colors": Array [
+            "U",
+          ],
+          "id": "bae30b7d-9306-46ef-adea-c4057f59c9c1",
+          "image_uris": Object {
+            "art_crop": "https://img.scryfall.com/cards/art_crop/en/dom/75.jpg?1524790728",
+            "border_crop": "https://img.scryfall.com/cards/border_crop/en/dom/75.jpg?1524790728",
+            "large": "https://img.scryfall.com/cards/large/en/dom/75.jpg?1524790728",
+            "normal": "https://img.scryfall.com/cards/normal/en/dom/75.jpg?1524790728",
+            "png": "https://img.scryfall.com/cards/png/en/dom/75.png?1524790728",
+            "small": "https://img.scryfall.com/cards/small/en/dom/75.jpg?1524790728",
+          },
+          "mana_cost": "{1}{U}{U}",
+          "name": "Wizard's Retort",
+          "oracle_text": "This spell costs {1} less to cast if you control a Wizard.
+      Counter target spell.",
+        },
+      ]
+    }
+    grid={true}
+  />
+</main>
+`;
