@@ -22,24 +22,24 @@ test('there is a filters object on state', () => {
   expect(wrapper.state('filters')).toBeDefined();
 });
 
-test('it handles colour filters being toggled', () => {
-  wrapper.find('Navigation')
-    .prop('onClick')('W');
-  const expected = ['U', 'B', 'R', 'G'];
-  expect(wrapper.state('filters').colors).toEqual(expected);
-});
+// test('it handles colour filters being toggled', () => {
+//   wrapper.find('Navigation')
+//     .prop('onClick')('W');
+//   const expected = ['U', 'B', 'R', 'G'];
+//   expect(wrapper.state('filters').colors).toEqual(expected);
+// });
 
-test('it filters by colour', () => {
-  const colors = ['W'];
-  wrapper.instance().setState(
-    { filters: { colors } },
-    // callback after setting state
-    () => {
-      wrapper.instance().filterCards();
-    },
-  );
-  expect(wrapper.state('cardsToShow').length).toBe(8);
-});
+// test('it filters by colour', () => {
+//   const colors = ['W'];
+//   wrapper.instance().setState(
+//     { filters: { colors } },
+//     // callback after setting state
+//     () => {
+//       wrapper.instance().filterCards();
+//     },
+//   );
+//   expect(wrapper.state('cardsToShow').length).toBe(8);
+// });
 
 // test('there is an input field for mana cost', () => {
 //   expect(wrapper).toMatchSnapshot();
@@ -58,7 +58,7 @@ test('formatManaCost function converts mana costs to be usable', () => {
   expect(formattedCost).toBe('1W');
 });
 
-test('formatManaCostToColorObject converts mana costs to clor objects', () => {
+test('formatManaCostToColorObject converts mana costs to color objects', () => {
   const egCard = dummyData.data[0];
   const egManaCost = egCard.mana_cost;
   const formattedCost = wrapper.instance().formatManaCostToColorObject(egManaCost);

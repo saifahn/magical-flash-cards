@@ -3,7 +3,6 @@
 exports[`should render correctly 1`] = `
 <main>
   <Navigation
-    onClick={[Function]}
     setManaFilter={[Function]}
     sortByCMC={[Function]}
     sortByColor={[Function]}

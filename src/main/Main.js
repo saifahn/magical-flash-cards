@@ -8,7 +8,6 @@ class Main extends Component {
   state = {
     cards: [],
     filters: {
-      colors: ['W', 'U', 'B', 'R', 'G'],
       mana: '',
     },
     cardsToShow: [],
@@ -21,10 +20,15 @@ class Main extends Component {
     this.storeCards(dummyData);
   }
 
-
-  onClick = (param) => {
-    this.toggleColor(param);
-    this.filterCards();
+  setManaFilter = (mana) => {
+    this.setState(({
+      filters: {
+        ...this.state.filters,
+        mana,
+      },
+    }), () => {
+      this.filterCards();
+    });
   }
 
   formatManaCost = (cost) => {
@@ -50,44 +54,10 @@ class Main extends Component {
     return manaObject;
   }
 
-  toggleColor(color) {
-    const { colors } = this.state.filters;
-    const index = colors.indexOf(color);
-    if (index < 0) {
-      colors.push(color);
-    }
-    if (index >= 0) {
-      colors.splice(index, 1);
-    }
-    this.setState({ filters: { colors } });
-  }
-
-  setManaFilter = (mana) => {
-    // this.setState(() => (
-    //   {
-    //     filters:
-    //     {
-    //       ...this.state.filters,
-    //       mana,
-    //     },
-    //   }
-    // ));
-    this.setState(({
-      filters: {
-        ...this.state.filters,
-        mana,
-      },
-    }), () => {
-      this.filterCards();
-    });
-  }
-
   filterCards() {
     const { cards } = this.state;
-    const { colors, mana } = this.state.filters;
-    let cardsToShow = cards.filter(card => (
-      card.colors.some(color => colors.includes(color))
-    ));
+    const { mana } = this.state.filters;
+    let cardsToShow = cards;
     if (mana) {
       cardsToShow = cardsToShow.filter(card => (
         this.filterCardByMana(card, mana)
@@ -192,7 +162,6 @@ class Main extends Component {
     return (
       <main>
         <Navigation
-          onClick={this.onClick}
           sortByCMC={this.sortByCMC}
           sortByColor={this.sortByColor}
           toggleGrid={this.toggleGrid}

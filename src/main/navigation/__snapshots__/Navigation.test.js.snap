@@ -7,7 +7,6 @@ exports[`it renders correctly 1`] = `
   <h3>
     This is where the navigation goes
   </h3>
-  <Colors />
   <ManaInput />
   <Sorter />
   <ColorSorter />
