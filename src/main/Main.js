@@ -9,6 +9,7 @@ class Main extends Component {
     cards: [],
     filters: {
       mana: '',
+      sortBy: 'color',
     },
     cardsToShow: [],
     grid: true,
@@ -25,6 +26,28 @@ class Main extends Component {
       filters: {
         ...this.state.filters,
         mana,
+      },
+    }), () => {
+      this.filterCards();
+    });
+  }
+
+  setSortToColor = () => {
+    this.setState(({
+      filters: {
+        ...this.state.filters,
+        sortBy: 'color',
+      },
+    }), () => {
+      this.filterCards();
+    });
+  }
+
+  setSortToCMC = () => {
+    this.setState(({
+      filters: {
+        ...this.state.filters,
+        sortBy: 'cmc',
       },
     }), () => {
       this.filterCards();
@@ -56,13 +79,23 @@ class Main extends Component {
 
   filterCards() {
     const { cards } = this.state;
-    const { mana } = this.state.filters;
+    const { mana, sortBy } = this.state.filters;
     let cardsToShow = cards;
     if (mana) {
       cardsToShow = cardsToShow.filter(card => (
         this.filterCardByMana(card, mana)
       ));
     }
+    // if (sortBy === 'cmc') {
+    //   cardsToShow = this.sortByCMC(cardsToShow);
+    // }
+    // if (sortBy === 'color') {
+    //   cardsToShow = this.sortByColor(cardsToShow);
+    // }
+    // console.log(cardsToShow);
+    cardsToShow = sortBy === 'cmc'
+      ? this.sortByCMC(cardsToShow)
+      : this.sortByColor(cardsToShow);
     this.setState({ cardsToShow });
   }
 
@@ -95,15 +128,16 @@ class Main extends Component {
     return true;
   }
 
-  sortByCMC = () => {
-    const { cardsToShow } = this.state;
+  sortByCMC = (cardsToShow) => {
+    // const { cardsToShow } = this.state;
     cardsToShow.sort((a, b) => (
       a.cmc - b.cmc
     ));
-    this.setState({ cardsToShow });
+    return cardsToShow;
+    // this.setState({ cardsToShow });
   }
 
-  sortByColor = () => {
+  sortByColor = (cardsToShow) => {
     // function to help in the sort
     const assignNumToColor = (card) => {
       let res;
@@ -128,14 +162,12 @@ class Main extends Component {
       }
       return res;
     };
-
-    const { cardsToShow } = this.state;
     cardsToShow.sort((a, b) => {
       const aColor = assignNumToColor(a);
       const bColor = assignNumToColor(b);
       return aColor - bColor;
     });
-    this.setState({ cardsToShow });
+    return cardsToShow;
   }
 
   toggleGrid = () => {
@@ -162,8 +194,8 @@ class Main extends Component {
     return (
       <main>
         <Navigation
-          sortByCMC={this.sortByCMC}
-          sortByColor={this.sortByColor}
+          setSortToCMC={this.setSortToCMC}
+          setSortToColor={this.setSortToColor}
           toggleGrid={this.toggleGrid}
           setManaFilter={this.setManaFilter}
         />

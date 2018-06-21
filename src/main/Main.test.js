@@ -78,3 +78,7 @@ test('cards are filtered according to the mana filter', () => {
 });
 
 // test changing the input calls setManaFilter
+
+test('there is a sortBy property within filters on state', () => {
+  expect(wrapper.state('filters').sortBy).toBeTruthy();
+});

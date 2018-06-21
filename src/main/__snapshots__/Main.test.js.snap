@@ -4,8 +4,8 @@ exports[`should render correctly 1`] = `
 <main>
   <Navigation
     setManaFilter={[Function]}
-    sortByCMC={[Function]}
-    sortByColor={[Function]}
+    setSortToCMC={[Function]}
+    setSortToColor={[Function]}
     toggleGrid={[Function]}
   />
   <Cards

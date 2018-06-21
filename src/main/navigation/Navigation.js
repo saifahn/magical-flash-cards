@@ -5,7 +5,7 @@ import ManaInput from './ManaInput';
 
 const Sorter = props => (
   <button
-    onClick={props.sortByCMC}
+    onClick={props.setSortToCMC}
     className="c-button"
   >
     Sort by CMC
@@ -14,7 +14,7 @@ const Sorter = props => (
 
 const ColorSorter = props => (
   <button
-    onClick={props.sortByColor}
+    onClick={props.setSortToColor}
     className="c-button"
   >
     Sort by Color
@@ -25,8 +25,8 @@ const Navigation = props => (
   <section className="c-navigation">
     <h3>This is where the navigation goes</h3>
     <ManaInput setManaFilter={props.setManaFilter} />
-    <Sorter sortByCMC={props.sortByCMC} />
-    <ColorSorter sortByColor={props.sortByColor} />
+    <Sorter setSortToCMC={props.setSortToCMC} />
+    <ColorSorter setSortToColor={props.setSortToColor} />
     <button
       onClick={props.toggleGrid}
       className="c-button"
