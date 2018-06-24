@@ -24,39 +24,20 @@ I want to be able to type in a mana cost and see what cards are playable.
 
 ## Tests
   * Filtering by mana cost:
-    * [ ] There should be a filters object on state
-    * [ ] There is an input field for mana cost
-      * [ ] it should render correctly
+    * [x] There should be a filters object on state
+    * [x] There is an input field for mana cost
+      * [x] it should render correctly
       * [ ] it should only accept a valid mana cost
-      * [ ] it should call onChange when changed (set mana cost filter)
-      * [ ] it should filter cards according to the provided manaCost
-    * [ ] There should be a formatManaCost function
-      * [ ] it should convert mana costs to be usable
-    * [ ] Cards should have their mana cost be filterable
-      * [ ] There should be a ensureFilterableManaCost function
-        * [ ] it should format the costs into a filterable string
-  
-  * Toggling colours:
-    * [ ] There are toggles for colours
-      * [ ] Pressing a toggle should hide/show the cards of that colour
-        * [ ] Adjust the filters object
-  
-  * [ ] There is an input field for name:
-    * [ ] It should set the text filter
-    * [ ] It should only take valid characters
+      * [x] it should call onChange when changed (set mana cost filter)
+      * [x] it should filter cards according to the provided manaCost
 
-  * [ ] There is a slider for cmc
-    * [ ] it should render correctly
-    * [ ] it should set a filter
-  
-  * [ ] There are toggles for rarities
-    * [ ] they should render correctly
+  * [x] There is a button to sort card by colour
+    * [x] it should render correctly
 
-  * [ ] There is a button to sort card by colour
-    * [ ] it should render correctly
+  * [x] There is a button to sort cards by cmc
+    * [x] it should render correctly
 
-  * [ ] There is a button to sort cards by cmc
-    * [ ] it should render correctly
+  * [ ] There is a select to select the set
 
 
 

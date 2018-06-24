@@ -9,7 +9,7 @@ class Main extends Component {
     cards: [],
     filters: {
       mana: '',
-      sortBy: 'color',
+      sortBy: [],
     },
     cardsToShow: [],
     grid: true,
@@ -22,47 +22,39 @@ class Main extends Component {
   }
 
   setManaFilter = (mana) => {
-    this.setState(({
+    this.setState({
       filters: {
         ...this.state.filters,
         mana,
       },
-    }), () => {
+    }, () => {
       this.filterCards();
     });
   }
 
-  setSortToColor = () => {
-    this.setState(({
+  toggleSort = (toSortBy) => {
+    const { sortBy } = this.state.filters;
+    const index = sortBy.indexOf(toSortBy);
+
+    if (index === -1) {
+      sortBy.push(toSortBy);
+    }
+    if (index !== -1) {
+      sortBy.splice(index, index + 1);
+    }
+    this.setState({
       filters: {
         ...this.state.filters,
-        sortBy: 'color',
+        sortBy,
       },
-    }), () => {
+    }, () => {
       this.filterCards();
     });
-  }
-
-  setSortToCMC = () => {
-    this.setState(({
-      filters: {
-        ...this.state.filters,
-        sortBy: 'cmc',
-      },
-    }), () => {
-      this.filterCards();
-    });
-  }
-
-  formatManaCost = (cost) => {
-    const re = /[{}]/g;
-    return cost.replace(re, '');
   }
 
   formatManaCostToColorObject = (cost) => {
     const re = /[\d{}]/g;
     const formattedCost = cost.replace(re, '');
-    // make the object
     const manaObject = {
       W: 0,
       U: 0,
@@ -77,25 +69,22 @@ class Main extends Component {
     return manaObject;
   }
 
-  filterCards() {
+  filterCards = () => {
     const { cards } = this.state;
     const { mana, sortBy } = this.state.filters;
-    let cardsToShow = cards;
+    // get a copy of this.state.cards as value rather than reference
+    let cardsToShow = cards.slice();
     if (mana) {
       cardsToShow = cardsToShow.filter(card => (
         this.filterCardByMana(card, mana)
       ));
     }
-    // if (sortBy === 'cmc') {
-    //   cardsToShow = this.sortByCMC(cardsToShow);
-    // }
-    // if (sortBy === 'color') {
-    //   cardsToShow = this.sortByColor(cardsToShow);
-    // }
-    // console.log(cardsToShow);
-    cardsToShow = sortBy === 'cmc'
-      ? this.sortByCMC(cardsToShow)
-      : this.sortByColor(cardsToShow);
+    if (sortBy.indexOf('colour') !== -1) {
+      cardsToShow = this.sortByColour(cardsToShow);
+    }
+    if (sortBy.indexOf('cmc') !== -1) {
+      cardsToShow = this.sortByCMC(cardsToShow);
+    }
     this.setState({ cardsToShow });
   }
 
@@ -112,7 +101,6 @@ class Main extends Component {
     } else {
       filterCMC = mana.length;
     }
-    // console.log(filterCMC);
     if (filterCMC < card.cmc) {
       return false;
     }
@@ -124,47 +112,54 @@ class Main extends Component {
         return false;
       }
     }
-    // console.log('not filtered');
     return true;
   }
 
-  sortByCMC = (cardsToShow) => {
-    // const { cardsToShow } = this.state;
-    cardsToShow.sort((a, b) => (
+  sortByCMC = (cardsToSort) => {
+    const cards = cardsToSort;
+    cards.sort((a, b) => (
       a.cmc - b.cmc
     ));
-    return cardsToShow;
-    // this.setState({ cardsToShow });
+    return cards;
   }
 
-  sortByColor = (cardsToShow) => {
-    // function to help in the sort
-    const assignNumToColor = (card) => {
-      let res;
-      switch (card.colors[0]) {
+  sortByColour = (cardsToSort) => {
+    const assignNumToColour = (card) => {
+      /** Function to help in sorting */
+      let assignedNum;
+      const numColours = card.colors.length;
+      // if the card is single coloured, use that colour, otherwise use multicoloured
+      const colour = numColours === 1
+        ? card.colors[0]
+        : 'M';
+      switch (colour) {
         case 'W':
-          res = 1;
+          assignedNum = 1;
           break;
         case 'U':
-          res = 2;
+          assignedNum = 2;
           break;
         case 'B':
-          res = 3;
+          assignedNum = 3;
           break;
         case 'R':
-          res = 4;
+          assignedNum = 4;
           break;
         case 'G':
-          res = 5;
+          assignedNum = 5;
+          break;
+        case 'M':
+          assignedNum = 6;
           break;
         default:
           return false;
       }
-      return res;
+      return assignedNum;
     };
+    const cardsToShow = cardsToSort;
     cardsToShow.sort((a, b) => {
-      const aColor = assignNumToColor(a);
-      const bColor = assignNumToColor(b);
+      const aColor = assignNumToColour(a);
+      const bColor = assignNumToColour(b);
       return aColor - bColor;
     });
     return cardsToShow;
@@ -186,16 +181,16 @@ class Main extends Component {
       const { image_uris, name, id, colors, cmc, mana_cost, oracle_text } = card;
       return { image_uris, name, id, colors, cmc, mana_cost, oracle_text };
     });
-    this.setState({ cards });
-    this.setState({ cardsToShow: cards });
+    this.setState({ cards }, () => {
+      this.filterCards();
+    });
   }
 
   render() {
     return (
       <main>
         <Navigation
-          setSortToCMC={this.setSortToCMC}
-          setSortToColor={this.setSortToColor}
+          toggleSort={this.toggleSort}
           toggleGrid={this.toggleGrid}
           setManaFilter={this.setManaFilter}
         />

@@ -3,12 +3,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Main from './Main';
 import dummyData from '../data.json';
+import testData from '../test_data.json';
 
 let wrapper;
 
 beforeEach(() => {
   wrapper = shallow(<Main />);
-})
+});
 
 it('should render correctly', () => {
   expect(wrapper).toMatchSnapshot();
@@ -22,41 +23,18 @@ test('there is a filters object on state', () => {
   expect(wrapper.state('filters')).toBeDefined();
 });
 
-// test('it handles colour filters being toggled', () => {
-//   wrapper.find('Navigation')
-//     .prop('onClick')('W');
-//   const expected = ['U', 'B', 'R', 'G'];
-//   expect(wrapper.state('filters').colors).toEqual(expected);
-// });
-
-// test('it filters by colour', () => {
-//   const colors = ['W'];
-//   wrapper.instance().setState(
-//     { filters: { colors } },
-//     // callback after setting state
-//     () => {
-//       wrapper.instance().filterCards();
-//     },
-//   );
-//   expect(wrapper.state('cardsToShow').length).toBe(8);
-// });
-
-// test('there is an input field for mana cost', () => {
-//   expect(wrapper).toMatchSnapshot();
-// });
-
 test('changing mana sets the mana filter', () => {
   const value = 'RRBB';
   wrapper.instance().setManaFilter(value);
   expect(wrapper.state('filters').mana).toBe(value);
 });
 
-test('formatManaCost function converts mana costs to be usable', () => {
-  const egCard = dummyData.data[0];
-  const egManaCost = egCard.mana_cost;
-  const formattedCost = wrapper.instance().formatManaCost(egManaCost);
-  expect(formattedCost).toBe('1W');
-});
+// test('formatManaCost function converts mana costs to be usable', () => {
+//   const egCard = dummyData.data[0];
+//   const egManaCost = egCard.mana_cost;
+//   const formattedCost = wrapper.instance().formatManaCost(egManaCost);
+//   expect(formattedCost).toBe('1W');
+// });
 
 test('formatManaCostToColorObject converts mana costs to color objects', () => {
   const egCard = dummyData.data[0];
@@ -78,7 +56,85 @@ test('cards are filtered according to the mana filter', () => {
 });
 
 // test changing the input calls setManaFilter
+// ALREADY TESTED IN MANA INPUT?
+// test('changing the input calls setManaFilter', () => {
+//   const value = 'RRBB';
+//   const setManaFilterSpy = jest.fn();
+//   wrapper = mount(<Main setManaFilter={setManaFilterSpy} />);
+//   wrapper.find('input').simulate('change', {
+//     target: { value },
+//   });
+//   expect(setManaFilterSpy).toHaveBeenLastCalledWith(value);
+// });
 
-test('there is a sortBy property within filters on state', () => {
-  expect(wrapper.state('filters').sortBy).toBeTruthy();
+test('there is a sortBy array property within filters on state', () => {
+  expect(wrapper.state('filters').sortBy).toEqual([]);
+});
+
+test('calling the toggleSort function with colour toggles sortBy colour', () => {
+  const colour = 'colour';
+  wrapper.instance().toggleSort(colour);
+  expect(wrapper.state('filters').sortBy).toEqual(expect.arrayContaining([colour]));
+  wrapper.instance().toggleSort(colour);
+  expect(wrapper.state('filters').sortBy).toEqual([]);
+});
+
+test('calling the toggleSort function with cmc toggles sortBy cmc', () => {
+  const cmc = 'cmc';
+  wrapper.instance().toggleSort(cmc);
+  expect(wrapper.state('filters').sortBy).toEqual(expect.arrayContaining([cmc]));
+  wrapper.instance().toggleSort(cmc);
+  expect(wrapper.state('filters').sortBy).toEqual([]);
+});
+
+const getCardData = (data) => {
+  const cards = data.data.map((card) => {
+    const { image_uris, name, id, colors, cmc, mana_cost, oracle_text } = card;
+    return { image_uris, name, id, colors, cmc, mana_cost, oracle_text };
+  });
+  return cards;
+};
+
+test('cards are sorted alphabetically if no sortBy values', () => {
+  const testCards = getCardData(testData);
+  wrapper.instance().storeCards(testData);
+  expect(wrapper.state('cardsToShow')).toEqual(testCards);
+});
+
+test('cards are sorted cmc -> alpha if cmc is present in sortBy', () => {
+  const testCards = getCardData(testData);
+  wrapper.instance().storeCards(testData);
+  wrapper.instance().toggleSort('cmc');
+  const expected = [testCards[0], testCards[1], testCards[2],
+    testCards[7], testCards[3], testCards[5], testCards[4], testCards[6]];
+  expect(wrapper.state('cardsToShow')).toEqual(expected);
+});
+
+test('cards are sorted colour -> alpha if colour is present in sortBy', () => {
+  const testCards = getCardData(testData);
+  wrapper.instance().storeCards(testData);
+  wrapper.instance().toggleSort('colour');
+  const expected = [testCards[1], testCards[2], testCards[3],
+    testCards[4], testCards[5], testCards[0], testCards[7], testCards[6]];
+  expect(wrapper.state('cardsToShow')).toEqual(expected);
+});
+
+test('cards are sorted alphabetically if sorted then unsorted', () => {
+  const testCards = getCardData(testData);
+  wrapper.instance().storeCards(testData);
+  wrapper.instance().toggleSort('colour');
+  wrapper.instance().toggleSort('colour');
+  const expected = [testCards[0], testCards[1], testCards[2],
+    testCards[3], testCards[4], testCards[5], testCards[6], testCards[7]];
+  expect(wrapper.state('cardsToShow')).toEqual(expected);
+});
+
+test('cards are sorted cmc -> colour -> alpha if both colour and cmc present', () => {
+  const testCards = getCardData(testData);
+  wrapper.instance().storeCards(testData);
+  wrapper.instance().toggleSort('colour');
+  wrapper.instance().toggleSort('cmc');
+  const expected = [testCards[1], testCards[2], testCards[0],
+    testCards[7], testCards[3], testCards[5], testCards[4], testCards[6]];
+  expect(wrapper.state('cardsToShow')).toEqual(expected);
 });

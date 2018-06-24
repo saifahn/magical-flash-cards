@@ -8,8 +8,12 @@ exports[`it renders correctly 1`] = `
     This is where the navigation goes
   </h3>
   <ManaInput />
-  <Sorter />
-  <ColorSorter />
+  <SortToggle
+    sorter="cmc"
+  />
+  <SortToggle
+    sorter="colour"
+  />
   <button
     className="c-button"
   >
