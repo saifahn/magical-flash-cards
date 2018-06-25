@@ -12,7 +12,7 @@ class Main extends Component {
       sortBy: [],
     },
     cardsToShow: [],
-    grid: true,
+    is_grid: false,
   }
 
   componentDidMount() {
@@ -166,7 +166,7 @@ class Main extends Component {
   }
 
   toggleGrid = () => {
-    this.setState({ grid: !this.state.grid });
+    this.setState({ is_grid: !this.state.is_grid });
   }
 
   // fetchCards(url) {
@@ -196,7 +196,7 @@ class Main extends Component {
         />
         <Cards
           cards={this.state.cardsToShow}
-          grid={this.state.grid}
+          is_grid={this.state.is_grid}
         />
       </main>
     );

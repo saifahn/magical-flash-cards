@@ -8,43 +8,48 @@
 }
 
 .c-card-items {
-  display: flex;
   list-style: none;
-  flex-wrap: wrap;
+  width: 50%;
 }
 
 .c-card-items__card {
+  width: 100%;
+  border: 1px solid rgba(40, 40, 40, 0.5);
   background: rgba(255, 255, 255, 0.2);
-  width: 17.5%;
-  margin: 0.5%;
-}
-
-
-.c-card-items__image {
-  max-width: 100%;
+  padding: 0 2.25rem;
 }
 
 .c-card-items__name, .c-card-items__mana-cost,
 .c-card-items__text {
+  display: block;
+}
+
+.c-card-items__image {
   display: none;
 }
 
 .is-grid .c-card-items {
-  width: 50%;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 0;
 }
 
 .is-grid .c-card-items__card {
-  width: 100%;
-  border: 1px solid rgba(40, 40, 40, 0.5);
-  padding: 0 2.25rem;
+  border: none;
+  width: 17.5%;
+  margin: 0.5%;
+  padding: 0;
+}
+
+
+.is-grid .c-card-items__image {
+  display: block;
+  max-width: 100%;
 }
 
 .is-grid .c-card-items__name, .is-grid .c-card-items__mana-cost,
 .is-grid .c-card-items__text {
-  display: block;
-}
-
-.is-grid .c-card-items__image {
   display: none;
 }
 
