@@ -4,9 +4,6 @@ exports[`it renders correctly 1`] = `
 <section
   className="c-navigation"
 >
-  <h3>
-    This is where the navigation goes
-  </h3>
   <ManaInput />
   <SortToggle
     sorter="cmc"
@@ -19,5 +16,6 @@ exports[`it renders correctly 1`] = `
   >
     Grid Toggle
   </button>
+  <SetSelector />
 </section>
 `;

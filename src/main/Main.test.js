@@ -2,8 +2,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Main from './Main';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import dummyData from '../data.json';
 import testData from '../test_data.json';
+
 
 let wrapper;
 
@@ -15,10 +18,6 @@ it('should render correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-// it('should store data correctly', () => {
-//   expect(wrapper.state('cards')[0].name).toEqual(data.data[0].name);
-// });
-
 test('there is a filters object on state', () => {
   expect(wrapper.state('filters')).toBeDefined();
 });
@@ -28,13 +27,6 @@ test('changing mana sets the mana filter', () => {
   wrapper.instance().setManaFilter(value);
   expect(wrapper.state('filters').mana).toBe(value);
 });
-
-// test('formatManaCost function converts mana costs to be usable', () => {
-//   const egCard = dummyData.data[0];
-//   const egManaCost = egCard.mana_cost;
-//   const formattedCost = wrapper.instance().formatManaCost(egManaCost);
-//   expect(formattedCost).toBe('1W');
-// });
 
 test('formatManaCostToColorObject converts mana costs to color objects', () => {
   const egCard = dummyData.data[0];
@@ -54,18 +46,6 @@ test('cards are filtered according to the mana filter', () => {
   wrapper.instance().setManaFilter(value);
   expect(wrapper.state('cardsToShow').length).toBe(10);
 });
-
-// test changing the input calls setManaFilter
-// ALREADY TESTED IN MANA INPUT?
-// test('changing the input calls setManaFilter', () => {
-//   const value = 'RRBB';
-//   const setManaFilterSpy = jest.fn();
-//   wrapper = mount(<Main setManaFilter={setManaFilterSpy} />);
-//   wrapper.find('input').simulate('change', {
-//     target: { value },
-//   });
-//   expect(setManaFilterSpy).toHaveBeenLastCalledWith(value);
-// });
 
 test('there is a sortBy array property within filters on state', () => {
   expect(wrapper.state('filters').sortBy).toEqual([]);
@@ -137,4 +117,13 @@ test('cards are sorted cmc -> colour -> alpha if both colour and cmc present', (
   const expected = [testCards[1], testCards[2], testCards[0],
     testCards[7], testCards[3], testCards[5], testCards[4], testCards[6]];
   expect(wrapper.state('cardsToShow')).toEqual(expected);
+});
+
+test('the loadSet function calls the correct', () => {
+  const mock = new MockAdapter(axios);
+  const baseURL = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3A';
+  const toUseURL = `${baseURL}C19`;
+  const okObject = { ok: 'yes' };
+  mock.onGet(toUseURL).reply(200, okObject);
+  const value = wrapper.instance().loadSet(toUseURL);
 });

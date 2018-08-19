@@ -176,6 +176,19 @@ class Main extends Component {
   //     .catch(error => console.log(error));
   // }
 
+  handleSetChange = (val) => {
+    let url = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3A'
+    url += val;
+    this.loadSet(url);
+  }
+
+  loadSet = (url) => {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => this.storeCards(data))
+      .catch(error => console.log(error));
+  }
+
   storeCards = (data) => {
     const cards = data.data.map((card) => {
       const { image_uris, name, id, colors, cmc, mana_cost, oracle_text } = card;
@@ -193,6 +206,7 @@ class Main extends Component {
           toggleSort={this.toggleSort}
           toggleGrid={this.toggleGrid}
           setManaFilter={this.setManaFilter}
+          handleSetChange={this.handleSetChange}
         />
         <Cards
           cards={this.state.cardsToShow}

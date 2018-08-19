@@ -3,6 +3,7 @@
 exports[`should render correctly 1`] = `
 <main>
   <Navigation
+    handleSetChange={[Function]}
     setManaFilter={[Function]}
     toggleGrid={[Function]}
     toggleSort={[Function]}
@@ -662,7 +663,7 @@ exports[`should render correctly 1`] = `
         },
       ]
     }
-    grid={true}
+    is_grid={false}
   />
 </main>
 `;

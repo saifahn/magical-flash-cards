@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders correctly 1`] = `
+<select
+  onChange={[Function]}
+>
+  <option
+    value="M19"
+  >
+    Core Set 2019
+  </option>
+  <option
+    value="DOM"
+  >
+    Dominaria
+  </option>
+  <option
+    value="RIX"
+  >
+    Rivals of Ixalan
+  </option>
+  <option
+    value="IXN"
+  >
+    Ixalan
+  </option>
+</select>
+`;
