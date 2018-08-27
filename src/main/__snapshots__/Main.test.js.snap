@@ -82,7 +82,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{2}{U}",
           "name": "Befuddle",
           "oracle_text": "Target creature gets -4/-0 until end of turn.
-      Draw a card.",
+Draw a card.",
         },
         Object {
           "cmc": 5,
@@ -137,7 +137,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{1}{U}",
           "name": "Blink of an Eye",
           "oracle_text": "Kicker {1}{U} (You may pay an additional {1}{U} as you cast this spell.)
-      Return target nonland permanent to its owner's hand. If this spell was kicked, draw a card.",
+Return target nonland permanent to its owner's hand. If this spell was kicked, draw a card.",
         },
         Object {
           "cmc": 2,
@@ -247,8 +247,8 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{3}{B}{R}",
           "name": "Garna, the Bloodflame",
           "oracle_text": "Flash
-      When Garna, the Bloodflame enters the battlefield, return to your hand all creature cards in your graveyard that were put there from anywhere this turn.
-      Other creatures you control have haste.",
+When Garna, the Bloodflame enters the battlefield, return to your hand all creature cards in your graveyard that were put there from anywhere this turn.
+Other creatures you control have haste.",
         },
         Object {
           "cmc": 2,
@@ -285,7 +285,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{1}{G}",
           "name": "Gift of Growth",
           "oracle_text": "Kicker {2} (You may pay an additional {2} as you cast this spell.)
-      Untap target creature. It gets +2/+2 until end of turn. If this spell was kicked, that creature gets +4/+4 until end of turn instead.",
+Untap target creature. It gets +2/+2 until end of turn. If this spell was kicked, that creature gets +4/+4 until end of turn instead.",
         },
         Object {
           "cmc": 1,
@@ -340,7 +340,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{U}{U}",
           "name": "Merfolk Trickster",
           "oracle_text": "Flash
-      When Merfolk Trickster enters the battlefield, tap target creature an opponent controls. It loses all abilities until end of turn.",
+When Merfolk Trickster enters the battlefield, tap target creature an opponent controls. It loses all abilities until end of turn.",
         },
         Object {
           "cmc": 4,
@@ -359,8 +359,8 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{2}{U}{U}",
           "name": "Naru Meha, Master Wizard",
           "oracle_text": "Flash
-      When Naru Meha, Master Wizard enters the battlefield, copy target instant or sorcery spell you control. You may choose new targets for the copy.
-      Other Wizards you control get +1/+1.",
+When Naru Meha, Master Wizard enters the battlefield, copy target instant or sorcery spell you control. You may choose new targets for the copy.
+Other Wizards you control get +1/+1.",
         },
         Object {
           "cmc": 1,
@@ -379,7 +379,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{U}",
           "name": "Opt",
           "oracle_text": "Scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)
-      Draw a card.",
+Draw a card.",
         },
         Object {
           "cmc": 2,
@@ -435,8 +435,8 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{2}{W}{U}",
           "name": "Raff Capashen, Ship's Mage",
           "oracle_text": "Flash
-      Flying
-      You may cast historic spells as though they had flash. (Artifacts, legendaries, and Sagas are historic.)",
+Flying
+You may cast historic spells as though they had flash. (Artifacts, legendaries, and Sagas are historic.)",
         },
         Object {
           "cmc": 1,
@@ -491,7 +491,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{1}{W}",
           "name": "Seal Away",
           "oracle_text": "Flash
-      When Seal Away enters the battlefield, exile target tapped creature an opponent controls until Seal Away leaves the battlefield.",
+When Seal Away enters the battlefield, exile target tapped creature an opponent controls until Seal Away leaves the battlefield.",
         },
         Object {
           "cmc": 5,
@@ -510,7 +510,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{4}{U}",
           "name": "Sentinel of the Pearl Trident",
           "oracle_text": "Flash
-      When Sentinel of the Pearl Trident enters the battlefield, you may exile target historic permanent you control. If you do, return that card to the battlefield under its owner's control at the beginning of the next end step. (Artifacts, legendaries, and Sagas are historic.)",
+When Sentinel of the Pearl Trident enters the battlefield, you may exile target historic permanent you control. If you do, return that card to the battlefield under its owner's control at the beginning of the next end step. (Artifacts, legendaries, and Sagas are historic.)",
         },
         Object {
           "cmc": 1,
@@ -529,7 +529,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{R}",
           "name": "Shivan Fire",
           "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)
-      Shivan Fire deals 2 damage to target creature. If this spell was kicked, it deals 4 damage to that creature instead.",
+Shivan Fire deals 2 damage to target creature. If this spell was kicked, it deals 4 damage to that creature instead.",
         },
         Object {
           "cmc": 4,
@@ -602,7 +602,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{1}{B}",
           "name": "Vicious Offering",
           "oracle_text": "Kicker—Sacrifice a creature. (You may sacrifice a creature in addition to any other costs as you cast this spell.)
-      Target creature gets -2/-2 until end of turn. If this spell was kicked, that creature gets -5/-5 until end of turn instead.",
+Target creature gets -2/-2 until end of turn. If this spell was kicked, that creature gets -5/-5 until end of turn instead.",
         },
         Object {
           "cmc": 4,
@@ -621,7 +621,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{3}{G}",
           "name": "Wild Onslaught",
           "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)
-      Put a +1/+1 counter on each creature you control. If this spell was kicked, put two +1/+1 counters on each creature you control instead.",
+Put a +1/+1 counter on each creature you control. If this spell was kicked, put two +1/+1 counters on each creature you control instead.",
         },
         Object {
           "cmc": 3,
@@ -640,7 +640,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{2}{R}",
           "name": "Wizard's Lightning",
           "oracle_text": "This spell costs {2} less to cast if you control a Wizard.
-      Wizard's Lightning deals 3 damage to any target.",
+Wizard's Lightning deals 3 damage to any target.",
         },
         Object {
           "cmc": 3,
@@ -659,7 +659,7 @@ exports[`should render correctly 1`] = `
           "mana_cost": "{1}{U}{U}",
           "name": "Wizard's Retort",
           "oracle_text": "This spell costs {1} less to cast if you control a Wizard.
-      Counter target spell.",
+Counter target spell.",
         },
       ]
     }

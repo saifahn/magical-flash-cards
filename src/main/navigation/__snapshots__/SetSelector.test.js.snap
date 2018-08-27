@@ -20,7 +20,7 @@ exports[`it renders correctly 1`] = `
     Rivals of Ixalan
   </option>
   <option
-    value="IXN"
+    value="XLN"
   >
     Ixalan
   </option>

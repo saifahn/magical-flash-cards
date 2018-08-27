@@ -2,8 +2,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Main from './Main';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import dummyData from '../data.json';
 import testData from '../test_data.json';
 
@@ -45,6 +43,12 @@ test('cards are filtered according to the mana filter', () => {
   const value = 'RRBB';
   wrapper.instance().setManaFilter(value);
   expect(wrapper.state('cardsToShow').length).toBe(10);
+});
+
+test('mana filter is case insensitive', () => {
+  const value = 'wwuubrrgg';
+  wrapper.instance().setManaFilter(value);
+  expect(wrapper.state('cardsToShow').length).toBeGreaterThan(0);
 });
 
 test('there is a sortBy array property within filters on state', () => {
@@ -119,11 +123,8 @@ test('cards are sorted cmc -> colour -> alpha if both colour and cmc present', (
   expect(wrapper.state('cardsToShow')).toEqual(expected);
 });
 
-test('the loadSet function calls the correct', () => {
-  const mock = new MockAdapter(axios);
-  const baseURL = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3A';
-  const toUseURL = `${baseURL}C19`;
-  const okObject = { ok: 'yes' };
-  mock.onGet(toUseURL).reply(200, okObject);
-  const value = wrapper.instance().loadSet(toUseURL);
+test('componentDidMount should load dummy data and put cards in state if ok', async () => {
+  const renderedComponent = await shallow(<Main />);
+  await renderedComponent.update();
+  expect(renderedComponent.state('cards').length).toEqual(dummyData.data.length);
 });

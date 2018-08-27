@@ -22,6 +22,7 @@ class Main extends Component {
   }
 
   setManaFilter = (mana) => {
+    mana = mana.toUpperCase();
     this.setState({
       filters: {
         ...this.state.filters,
