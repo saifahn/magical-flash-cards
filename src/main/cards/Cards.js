@@ -3,7 +3,7 @@ import './Cards.css';
 
 const Cards = (props) => {
   let cardClass = 'c-cards';
-  if (props.is_grid) {
+  if (props.isGrid) {
     cardClass += ' is-grid';
   }
   return (

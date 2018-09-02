@@ -12,13 +12,30 @@ class Main extends Component {
       sortBy: [],
     },
     cardsToShow: [],
-    is_grid: false,
+    isGrid: false,
+    sets: [],
   }
 
   componentDidMount() {
     // const baseUrl = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3ADOM';
     // this.fetchCards(baseUrl);
+    this.getSets();
     this.storeCards(dummyData);
+  }
+
+  getSets = () => {
+    fetch('https://api.scryfall.com/sets')
+      .then(response => response.json())
+      .then((data) => this.setSets(data))
+      .catch(error => console.log(error));
+  }
+
+  setSets = (data) => {
+    const lowerBound = '2013'
+    const upperBound = '2018-08-29'
+    const fetched = data.data;
+    const sets = fetched.filter(set => (set.set_type === 'expansion' || set.set_type === 'core' || set.set_type === 'masters') && set.released_at > lowerBound && set.released_at < upperBound);
+    this.setState({ sets });
   }
 
   setManaFilter = (mana) => {
@@ -167,7 +184,7 @@ class Main extends Component {
   }
 
   toggleGrid = () => {
-    this.setState({ is_grid: !this.state.is_grid });
+    this.setState({ isGrid: !this.state.isGrid });
   }
 
   // fetchCards(url) {
@@ -208,10 +225,11 @@ class Main extends Component {
           toggleGrid={this.toggleGrid}
           setManaFilter={this.setManaFilter}
           handleSetChange={this.handleSetChange}
+          sets={this.state.sets}
         />
         <Cards
           cards={this.state.cardsToShow}
-          is_grid={this.state.is_grid}
+          isGrid={this.state.isGrid}
         />
       </main>
     );

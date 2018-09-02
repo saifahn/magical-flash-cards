@@ -8,10 +8,11 @@ export default class SetSelector extends Component {
   render() {
     return (
       <select onChange={this.handleSetChange}>
-        <option value="M19">Core Set 2019</option>
-        <option value="DOM">Dominaria</option>
-        <option value="RIX">Rivals of Ixalan</option>
-        <option value="XLN">Ixalan</option>
+        {this.props.sets.map(set => (
+          <option key={set.code} value={set.code}>
+            {set.name}
+          </option>
+        ))}
       </select>
     );
   }

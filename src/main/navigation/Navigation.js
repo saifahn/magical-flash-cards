@@ -22,7 +22,10 @@ const Navigation = props => (
     >
       Grid Toggle
     </button>
-    <SetSelector handleSetChange={props.handleSetChange} />
+    <SetSelector
+      handleSetChange={props.handleSetChange}
+      sets={props.sets}
+    />
   </section>
 );
 

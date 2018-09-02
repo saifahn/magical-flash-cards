@@ -128,3 +128,26 @@ test('componentDidMount should load dummy data and put cards in state if ok', as
   await renderedComponent.update();
   expect(renderedComponent.state('cards').length).toEqual(dummyData.data.length);
 });
+
+// test('componentDidMount should fetch and put sets in state if ok', async () => {
+//   window.fetch = jest.fn().mockImplementation(() => ({
+//     status: 200,
+//     json: () => new Promise((resolve, reject) => {
+//       resolve({
+//         data: [
+//           {
+//             code: 'XLN',
+//             name: 'Ixalan',
+//           },
+//           {
+//             code: 'DOM',
+//             name: 'Dominaria',
+//           },
+//         ],
+//       });
+//     }),
+//   }));
+//   const renderedComponent = await shallow(<Main />);
+//   await renderedComponent.update();
+//   expect(renderedComponent.state('sets').length).toBeGreaterThan(0);
+// });
