@@ -3,6 +3,7 @@ import './Colors.css';
 
 const ColorButton = props => (
   <button
+    type="button"
     onClick={() => props.onClick(props.children)}
     className="c-color"
   >

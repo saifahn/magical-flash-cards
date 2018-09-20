@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import SetSelector from './SetSelector';
 
 test('it renders correctly', () => {
-  const wrapper = shallow(<SetSelector />);
+  const sets = [];
+  const wrapper = shallow(<SetSelector sets={sets} />);
   expect(wrapper).toMatchSnapshot();
 });

@@ -16,6 +16,8 @@ exports[`it renders correctly 1`] = `
   >
     Grid Toggle
   </button>
-  <SetSelector />
+  <SetSelector
+    sets={Array []}
+  />
 </section>
 `;

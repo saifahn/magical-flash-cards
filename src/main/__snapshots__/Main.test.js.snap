@@ -5,6 +5,7 @@ exports[`should render correctly 1`] = `
   <Navigation
     handleSetChange={[Function]}
     setManaFilter={[Function]}
+    sets={Array []}
     toggleGrid={[Function]}
     toggleSort={[Function]}
   />
@@ -663,7 +664,7 @@ Counter target spell.",
         },
       ]
     }
-    is_grid={false}
+    isGrid={false}
   />
 </main>
 `;
