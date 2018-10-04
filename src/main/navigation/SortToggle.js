@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const SortButton = styled('button')`
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-family: Domine;
+`;
 
 export default class SortToggle extends Component {
   constructor(props) {
@@ -14,15 +22,18 @@ export default class SortToggle extends Component {
   render() {
     const { sorter } = this.props;
     return (
-      <button
+      <SortButton
         onClick={this.handleClick}
         className="c-sort-button"
       >
         sort by {sorter}
-      </button>
+      </SortButton>
     );
   }
 }
+
+
+
 
 // const SortToggle = props => (
 //   <button

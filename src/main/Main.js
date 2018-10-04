@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Main.css';
+import styled from 'styled-components';
+// import './Main.css';
 import Navigation from './navigation/Navigation';
 import Cards from './cards/Cards';
 import dummyData from '../data.json';
@@ -32,7 +33,7 @@ class Main extends Component {
 
   setSets = (data) => {
     const lowerBound = '2013'
-    const upperBound = '2018-08-29'
+    const upperBound = '2018-10-29'
     const fetched = data.data;
     const sets = fetched.filter(set => (set.set_type === 'expansion' || set.set_type === 'core' || set.set_type === 'masters') && set.released_at > lowerBound && set.released_at < upperBound);
     this.setState({ sets });
@@ -219,7 +220,7 @@ class Main extends Component {
 
   render() {
     return (
-      <main>
+      <main className={this.props.className}>
         <Navigation
           toggleSort={this.toggleSort}
           toggleGrid={this.toggleGrid}
@@ -236,4 +237,8 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default styled(Main)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
