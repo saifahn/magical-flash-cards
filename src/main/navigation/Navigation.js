@@ -2,9 +2,16 @@ import React from 'react';
 // import './Navigation.css';
 import styled from 'styled-components';
 import ManaInput from './ManaInput';
-import SortToggle from './SortToggle';
+import SortToggle, { SortButton } from './SortToggle';
 import SetSelector from './SetSelector';
 // import Colors from './Colors';
+
+const Button = styled.button`
+  border: none;
+  background: none;
+  font-family: 'Domine';
+  font-size: 1rem;
+`;
 
 const Navigation = ({ className, setManaFilter, toggleSort, toggleGrid, handleSetChange, sets}) => (
   <div className={className}>
@@ -21,12 +28,12 @@ const Navigation = ({ className, setManaFilter, toggleSort, toggleGrid, handleSe
       toggleSort={toggleSort}
       sorter="colour"
     />
-    <button
+    <SortButton
       onClick={toggleGrid}
       className="c-button"
     >
-      Grid Toggle
-    </button>
+      grid toggle
+    </SortButton>
   </div>
 );
 

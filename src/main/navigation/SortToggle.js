@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const SortButton = styled('button')`
+export const SortButton = styled('button')`
   background: none;
   border: none;
   font-size: 1rem;
-  font-family: Domine;
+  padding: 0.5rem 1rem;
+  font-family: 'Domine', serif;
 `;
 
 export default class SortToggle extends Component {
