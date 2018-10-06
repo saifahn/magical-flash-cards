@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// import './Main.css';
+import './Main.css';
 import Navigation from './navigation/Navigation';
 import Cards from './cards/Cards';
 import dummyData from '../data.json';
@@ -52,7 +52,7 @@ class Main extends Component {
   }
 
   toggleSort = (toSortBy) => {
-    const { sortBy } = this.state.filters;
+    const { filters: { sortBy } } = this.state;
     const index = sortBy.indexOf(toSortBy);
 
     if (index === -1) {
@@ -219,18 +219,23 @@ class Main extends Component {
   }
 
   render() {
+    const { className } = this.props;
+    const { sets, cardsToShow, isGrid } = this.state;
+    const { sortBy } = this.state.filters;
     return (
-      <main className={this.props.className}>
+      <main className={className}>
         <Navigation
           toggleSort={this.toggleSort}
           toggleGrid={this.toggleGrid}
           setManaFilter={this.setManaFilter}
           handleSetChange={this.handleSetChange}
-          sets={this.state.sets}
+          sets={sets}
+          sortBy={sortBy}
+          isGrid={isGrid}
         />
         <Cards
-          cards={this.state.cardsToShow}
-          isGrid={this.state.isGrid}
+          cards={cardsToShow}
+          isGrid={isGrid}
         />
       </main>
     );

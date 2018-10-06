@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export const SortButton = styled('button')`
+export const ToggleButton = styled('button')`
   background: none;
   border: none;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  font-family: 'Domine', serif;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+  font-family: 'Lora', serif;
+  position: relative;
+  outline: none;
+  color: ${props => (props.isSelected ? 'black' : 'rgba(0, 0, 0, 0.6)')};
+
+  :before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    bottom: 1rem;
+    border-bottom: ${props => (props.isSelected ? '2px solid black' : 0)};
+  }
 `;
 
 export default class SortToggle extends Component {
@@ -21,14 +32,16 @@ export default class SortToggle extends Component {
   }
 
   render() {
-    const { sorter } = this.props;
+    const { sorter, children, sortBy } = this.props;
+    const isSelected = (sortBy.indexOf(sorter) > -1);
     return (
-      <SortButton
+      <ToggleButton
         onClick={this.handleClick}
         className="c-sort-button"
+        isSelected={isSelected}
       >
-        sort by {sorter}
-      </SortButton>
+        {children}
+      </ToggleButton>
     );
   }
 }

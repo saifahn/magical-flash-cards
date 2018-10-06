@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 // import './Cards.css';
 
-const Card = styled.li`
-  font-family: 'Dank Mono', monospaced;
+const Card = styled.div`
+  font-family: 'Inconsolata', monospace;
   padding: 0.25rem 0.75rem;
   display: ${props => (props.isGrid ? 'none' : 'block')};
   background-color: #e5d7d2;
@@ -13,7 +13,7 @@ const Card = styled.li`
   color: #333;
 
   & h4 {
-    font-family: 'Dank Mono', monospaced;
+    font-family: 'Inconsolata', monospace;
     font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -57,14 +57,14 @@ const Cards = (props) => {
         <CardList className="c-card-items">
           {
             cards.map(card => (
-              <div>
+              <div key={card.id}>
                 <CardImage
                   src={card.image_uris.border_crop}
                   // className="c-card-items__image"
                   alt={card.name}
                   isGrid={isGrid}
                 />
-                <Card key={card.id} className="c-card-items__card" isGrid={isGrid}>
+                <Card className="c-card-items__card" isGrid={isGrid}>
                   <CardHeader>
                     <h4 className="c-card-items__name">{card.name}</h4>
                     <ManaCost className="c-card-items__mana-cost">{card.mana_cost}</ManaCost>

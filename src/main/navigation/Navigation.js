@@ -2,38 +2,78 @@ import React from 'react';
 // import './Navigation.css';
 import styled from 'styled-components';
 import ManaInput from './ManaInput';
-import SortToggle, { SortButton } from './SortToggle';
+import SortToggle, { ToggleButton } from './SortToggle';
 import SetSelector from './SetSelector';
 // import Colors from './Colors';
 
-const Button = styled.button`
-  border: none;
-  background: none;
-  font-family: 'Domine';
-  font-size: 1rem;
+const SortContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.2rem;
 `;
 
-const Navigation = ({ className, setManaFilter, toggleSort, toggleGrid, handleSetChange, sets}) => (
+const ToggleHeader = styled.p`
+  margin-right: auto;
+  font-style: italic;
+`;
+
+const Navigation = ({
+  className,
+  setManaFilter,
+  toggleSort,
+  toggleGrid,
+  handleSetChange,
+  sets,
+  sortBy,
+  isGrid
+}) => (
   <div className={className}>
     <ManaInput setManaFilter={setManaFilter} />
     <SetSelector
       handleSetChange={handleSetChange}
       sets={sets}
     />
-    <SortToggle
-      toggleSort={toggleSort}
-      sorter="cmc"
-    />
-    <SortToggle
-      toggleSort={toggleSort}
-      sorter="colour"
-    />
-    <SortButton
-      onClick={toggleGrid}
-      className="c-button"
-    >
-      grid toggle
-    </SortButton>
+    <SortContainer>
+      <ToggleHeader>
+        sort by:
+      </ToggleHeader>
+      <SortToggle
+        toggleSort={toggleSort}
+        sorter="cmc"
+        sortBy={sortBy}
+      >
+        mana cost
+      </SortToggle>
+      <SortToggle
+        toggleSort={toggleSort}
+        sorter="colour"
+        sortBy={sortBy}
+      >
+        colour
+      </SortToggle>
+    </SortContainer>
+
+    <SortContainer>
+      <ToggleHeader>
+        mode:
+      </ToggleHeader>
+      <ToggleButton
+        onClick={toggleGrid}
+        className="c-button"
+        disabled={!isGrid}
+        isSelected={!isGrid}
+      >
+        text
+      </ToggleButton>
+      <ToggleButton
+        onClick={toggleGrid}
+        className="c-button"
+        disabled={isGrid}
+        isSelected={isGrid}
+      >
+        cards
+      </ToggleButton>
+    </SortContainer>
   </div>
 );
 

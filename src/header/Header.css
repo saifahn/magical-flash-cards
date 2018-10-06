@@ -1,4 +1,5 @@
 .c-brand {
   display: flex;
   justify-content: center;
+  font-family: 'Inconsolata', serif;
 }

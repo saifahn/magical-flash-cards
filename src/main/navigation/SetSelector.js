@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Selector = styled('select')`
   text-align-last: center;
-  font-family: 'Domine';
+  font-family: 'Lora', serif;
   font-size: 1.4rem;
   background-color: rgba(0, 0, 0, 0.1);
   width: 100%;
