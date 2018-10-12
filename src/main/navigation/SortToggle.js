@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { media, text } from '../../utils/theme';
 
 export const ToggleButton = styled('button')`
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: ${text.md};
   padding: 0 0.5rem;
   font-family: 'Lora', serif;
   position: relative;
@@ -17,7 +18,18 @@ export const ToggleButton = styled('button')`
     width: 50%;
     bottom: 1rem;
     border-bottom: ${props => (props.isSelected ? '2px solid black' : 0)};
+
+    ${media.sm`
+        bottom: 1.25rem;
+        border-bottom: ${props => (props.isSelected ? '2.5px solid black' : 0)};
+    `}
   }
+
+  ${media.sm`
+    font-size: ${text.lg};
+    margin: 0;
+    padding: 0 0.5rem;
+  `}
 `;
 
 export default class SortToggle extends Component {

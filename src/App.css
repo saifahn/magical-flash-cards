@@ -1,5 +1,14 @@
 body {
   background-color: #D3AD97;
+  margin: 0;
+}
+
+html {
+  font-size: 15px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* .c-button {

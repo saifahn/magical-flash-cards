@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import './Main.css';
+import styled, { css } from 'styled-components';
+// import './Main.css';
+import { media } from '../utils/theme';
 import Navigation from './navigation/Navigation';
 import Cards from './cards/Cards';
 import dummyData from '../data.json';
@@ -246,4 +247,20 @@ export default styled(Main)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  width: 100%;
+
+  ${media.sm`
+    width: calc(100vw - 30px);
+    max-width: 560px;
+    margin: 0 auto;
+  `}
+
+  ${media.lg`
+    max-width: 970px;
+  `}
+
+  ${media.xl`
+    max-width: 1170px;
+  `}
 `;
