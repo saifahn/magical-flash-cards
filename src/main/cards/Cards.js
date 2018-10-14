@@ -36,7 +36,6 @@ const Card = styled.div`
 const CardImage = styled.img`
   display: ${props => (props.isGrid ? 'inline' : 'none')};
   max-width: 100%;
-  margin: 0 10px;
 
   /* ${media.md`
     width: calc(100% / 2 - 15px);
@@ -57,20 +56,19 @@ const ManaCost = styled.h4`
 
 const CardList = styled.div`
   width: 100%;
-  column-count: 1;
-  /* display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; */
-  padding: 0;
-  margin: 10px;
-
-  margin: 0 10px;
+  /* column-count: 1; */
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-right: 10px;
 
   ${media.sm`
-    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
   `}
 
   ${media.md`
+    display: block;
     column-count: 2;
   `}
 
