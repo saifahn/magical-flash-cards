@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider, css } from 'styled-components';
 import { media, text } from '../../utils/theme';
+import { italicizeReminderText } from '../../utils/text-alter';
 // import './Cards.css';
 
 const Card = styled.div`
@@ -88,24 +89,27 @@ const Cards = (props) => {
   return (
     <CardList className="c-card-items">
       {
-        cards.map(card => (
-          <CardWrapper key={card.id}>
-            <CardImage
-              src={card.image_uris.border_crop}
-              // className="c-card-items__image"
-              alt={card.name}
-              isGrid={isGrid}
-            />
-            <Card className="c-card-items__card" isGrid={isGrid}>
-              <CardHeader>
-                <h4 className="c-card-items__name">{card.name}</h4>
-                <ManaCost className="c-card-items__mana-cost">{card.mana_cost}</ManaCost>
-              </CardHeader>
-              <p>Instant</p>
-              <p className="c-card-items__text">{card.oracle_text}</p>
-            </Card>
-          </CardWrapper>
-        ))
+        cards.map((card) => {
+          const oracleText = italicizeReminderText(card.oracle_text);
+          return (
+            <CardWrapper key={card.id}>
+              <CardImage
+                src={card.image_uris.border_crop}
+                // className="c-card-items__image"
+                alt={card.name}
+                isGrid={isGrid}
+              />
+              <Card className="c-card-items__card" isGrid={isGrid}>
+                <CardHeader>
+                  <h4 className="c-card-items__name">{card.name}</h4>
+                  <ManaCost className="c-card-items__mana-cost">{card.mana_cost}</ManaCost>
+                </CardHeader>
+                <p>Instant</p>
+                <p className="c-card-items__text" dangerouslySetInnerHTML={oracleText} />
+              </Card>
+            </CardWrapper>
+          );
+        })
       }
     </CardList>
   );
