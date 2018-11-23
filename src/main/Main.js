@@ -28,20 +28,20 @@ class Main extends Component {
   getSets = () => {
     fetch('https://api.scryfall.com/sets')
       .then(response => response.json())
-      .then((data) => this.setSets(data))
+      .then(data => this.setSets(data))
       .catch(error => console.log(error));
   }
 
   setSets = (data) => {
-    const lowerBound = '2013'
-    const upperBound = '2018-10-29'
+    const lowerBound = '2013';
+    const upperBound = '2018-10-29';
     const fetched = data.data;
     const sets = fetched.filter(set => (set.set_type === 'expansion' || set.set_type === 'core' || set.set_type === 'masters') && set.released_at > lowerBound && set.released_at < upperBound);
     this.setState({ sets });
   }
 
-  setManaFilter = (mana) => {
-    mana = mana.toUpperCase();
+  setManaFilter = (inputMana) => {
+    const mana = inputMana.toUpperCase();
     this.setState({
       filters: {
         ...this.state.filters,
@@ -90,8 +90,7 @@ class Main extends Component {
   }
 
   filterCards = () => {
-    const { cards } = this.state;
-    const { mana, sortBy } = this.state.filters;
+    const { cards, filters: { mana, sortBy } } = this.state;
     // get a copy of this.state.cards as value rather than reference
     let cardsToShow = cards.slice();
     if (mana) {
@@ -186,7 +185,8 @@ class Main extends Component {
   }
 
   toggleGrid = () => {
-    this.setState({ isGrid: !this.state.isGrid });
+    const { isGrid } = this.state;
+    this.setState({ isGrid: !isGrid });
   }
 
   // fetchCards(url) {
@@ -225,8 +225,9 @@ class Main extends Component {
 
   render() {
     const { className } = this.props;
-    const { sets, cardsToShow, isGrid } = this.state;
-    const { sortBy } = this.state.filters;
+    const {
+      sets, cardsToShow, isGrid, filters: { sortBy },
+    } = this.state;
     return (
       <main className={className}>
         <Navigation
