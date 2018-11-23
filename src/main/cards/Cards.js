@@ -77,6 +77,20 @@ const CardList = styled.div`
   `}
 `;
 
+const CardFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  padding-bottom: 10px;
+`;
+
+const PowerToughness = styled.p`
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
 // const CardWrapper = styled.div``;
 const CardWrapper = styled.div`
   display: inline-block;
@@ -101,8 +115,17 @@ const Cards = (props) => {
                 <h4 className="c-card-items__name">{card.name}</h4>
                 <ManaCost className="c-card-items__mana-cost">{card.mana_cost}</ManaCost>
               </CardHeader>
-              <p>Instant</p>
+              <p>{card.type_line}</p>
               <p className="c-card-items__text">{card.oracle_text}</p>
+              {card.power && card.toughness && (
+                <CardFooter>
+                  <PowerToughness>
+                    {card.power}
+                    /
+                    {card.toughness}
+                  </PowerToughness>
+                </CardFooter>
+              )}
             </Card>
           </CardWrapper>
         ))

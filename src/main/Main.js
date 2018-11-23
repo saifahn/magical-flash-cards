@@ -211,8 +211,12 @@ class Main extends Component {
 
   storeCards = (data) => {
     const cards = data.data.map((card) => {
-      const { image_uris, name, id, colors, cmc, mana_cost, oracle_text } = card;
-      return { image_uris, name, id, colors, cmc, mana_cost, oracle_text };
+      const {
+        image_uris, name, id, colors, cmc, mana_cost, oracle_text, type_line, power, toughness,
+      } = card;
+      return {
+        image_uris, name, id, colors, cmc, mana_cost, oracle_text, type_line, power, toughness,
+      };
     });
     this.setState({ cards }, () => {
       this.filterCards();
