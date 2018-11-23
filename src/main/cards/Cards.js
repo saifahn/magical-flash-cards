@@ -13,6 +13,7 @@ const Card = styled.div`
   margin-bottom: 0.5rem;
   border-left: 4px solid ${props => props.theme.primary || '#5a114d'};
   color: #333;
+  width: 100%;
 
   ${media.sm`
     border-left: 5px solid #5a114d;
@@ -81,6 +82,7 @@ const CardList = styled.div`
 const CardWrapper = styled.div`
   display: inline-block;
   margin: auto;
+  width: 100%;
 `;
 
 const Cards = (props) => {
