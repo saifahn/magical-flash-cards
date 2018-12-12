@@ -122,13 +122,15 @@ const Cards = (props) => {
                 </CardHeader>
                 <p>Instant</p>
                 <p className="c-card-items__text" dangerouslySetInnerHTML={oracleText} />
-                <CardFooter>
-                  <PowerToughness>
-                    {card.power}
-                    /
-                    {card.toughness}
-                  </PowerToughness>
-                </CardFooter>
+                {card.power && card.toughness && (
+                  <CardFooter>
+                    <PowerToughness>
+                      {card.power}
+                      /
+                      {card.toughness}
+                    </PowerToughness>
+                  </CardFooter>
+                )}
               </Card>
             </CardWrapper>
           );
