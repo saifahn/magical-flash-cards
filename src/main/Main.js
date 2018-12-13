@@ -33,8 +33,8 @@ class Main extends Component {
   }
 
   setSets = (data) => {
-    const lowerBound = '2013'
-    const upperBound = '2018-10-29'
+    const upperBound = new Date().toISOString().slice(0, 10);
+    const lowerBound = (upperBound.slice(0, 4) - 5).toString();
     const fetched = data.data;
     const sets = fetched.filter(set => (set.set_type === 'expansion' || set.set_type === 'core' || set.set_type === 'masters') && set.released_at > lowerBound && set.released_at < upperBound);
     this.setState({ sets });
