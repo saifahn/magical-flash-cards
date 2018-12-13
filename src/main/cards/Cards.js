@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled, { ThemeProvider, css } from 'styled-components';
 import { media, text } from '../../utils/theme';
 import { italicizeReminderText } from '../../utils/text-alter';
@@ -106,6 +106,33 @@ const Cards = (props) => {
     <CardList className="c-card-items">
       {
         cards.map((card) => {
+          const hasMultipleFaces = !!card.card_faces;
+          if (hasMultipleFaces) {
+            return (
+              <CardWrapper key={card.id}>
+                <CardImage
+                  src={card.image_uris.border_crop}
+                  alt={card.name}
+                  isGrid={isGrid}
+                />
+                <Card className="c-card-items__card" isGrid={isGrid}>
+                  {card.card_faces.map((face) => {
+                    const oracleText = italicizeReminderText(face.oracle_text);
+                    return (
+                      <Fragment>
+                        <CardHeader>
+                          <h4 className="c-card-items__name">{face.name}</h4>
+                          <ManaCost className="c-card-items__mana-cost">{face.mana_cost}</ManaCost>
+                        </CardHeader>
+                        <p>{face.type_line}</p>
+                        <p className="c-card-items__text" dangerouslySetInnerHTML={oracleText} />
+                      </Fragment>
+                    )
+                  })}
+                </Card>
+              </CardWrapper>
+            );
+          }
           const oracleText = italicizeReminderText(card.oracle_text);
           return (
             <CardWrapper key={card.id}>

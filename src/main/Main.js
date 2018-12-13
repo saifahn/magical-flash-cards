@@ -212,10 +212,30 @@ class Main extends Component {
   storeCards = (data) => {
     const cards = data.data.map((card) => {
       const {
-        image_uris, name, id, colors, cmc, mana_cost, oracle_text, type_line, power, toughness,
+        image_uris,
+        name,
+        id,
+        colors,
+        cmc,
+        mana_cost,
+        oracle_text,
+        type_line,
+        power,
+        toughness,
+        card_faces,
       } = card;
       return {
-        image_uris, name, id, colors, cmc, mana_cost, oracle_text, type_line, power, toughness,
+        image_uris,
+        name,
+        id,
+        colors,
+        cmc,
+        mana_cost,
+        oracle_text,
+        type_line,
+        power,
+        toughness,
+        card_faces,
       };
     });
     this.setState({ cards }, () => {
