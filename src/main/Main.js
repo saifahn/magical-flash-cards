@@ -27,7 +27,7 @@ class Main extends Component {
   getSets = () => {
     fetch('https://api.scryfall.com/sets')
       .then(response => response.json())
-      .then((data) => this.setSets(data))
+      .then(data => this.setSets(data))
       .catch(error => console.log(error));
   }
 
@@ -41,12 +41,12 @@ class Main extends Component {
 
   setManaFilter = (mana) => {
     mana = mana.toUpperCase();
-    this.setState({
+    this.setState(prevState => ({
       filters: {
-        ...this.state.filters,
+        ...prevState.filters,
         mana,
       },
-    }, () => {
+    }), () => {
       this.filterCards();
     });
   }
@@ -61,19 +61,18 @@ class Main extends Component {
     if (index !== -1) {
       sortBy.splice(index, index + 1);
     }
-    this.setState({
+    this.setState(prevState => ({
       filters: {
-        ...this.state.filters,
+        ...prevState.filters,
         sortBy,
       },
-    }, () => {
+    }), () => {
       this.filterCards();
     });
   }
 
   filterCards = () => {
-    const { cards } = this.state;
-    const { mana, sortBy } = this.state.filters;
+    const { cards, filters: { mana, sortBy } } = this.state;
     // get a copy of this.state.cards as value rather than reference
     let cardsToShow = cards.slice();
     if (mana) {
@@ -91,7 +90,7 @@ class Main extends Component {
   }
 
   toggleGrid = () => {
-    this.setState({ isGrid: !this.state.isGrid });
+    this.setState(prevState => ({ isGrid: !prevState.isGrid }));
   }
 
   handleSetChange = (val) => {
@@ -119,8 +118,7 @@ class Main extends Component {
 
   render() {
     const { className } = this.props;
-    const { sets, cardsToShow, isGrid } = this.state;
-    const { sortBy } = this.state.filters;
+    const { sets, cardsToShow, isGrid, filters: { sortBy } } = this.state;
     return (
       <main className={className}>
         <Navigation
