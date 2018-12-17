@@ -4,7 +4,6 @@ import { media, text } from '../../utils/theme';
 import ManaInput from './ManaInput';
 import SortToggle, { ToggleButton } from './SortToggle';
 import SetSelector from './SetSelector';
-// import Colors from './Colors';
 
 const SortWrapper = styled.div`
   display: flex;
