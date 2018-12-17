@@ -49,7 +49,7 @@ export const Card = (props) => {
         <h4 className="c-card-items__name">{card.name}</h4>
         <ManaCost className="c-card-items__mana-cost">{card.mana_cost}</ManaCost>
       </CardHeader>
-      <p>Instant</p>
+      <p>{card.type_line}</p>
       <p className="c-card-items__text" dangerouslySetInnerHTML={italicizeReminderText(card.oracle_text)} />
     </BaseCard>
   );
