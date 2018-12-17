@@ -58,7 +58,7 @@ export const Card = (props) => {
 export const SplitCard = (props) => {
   const { card, isGrid } = props;
   return (
-    <BaseCard>
+    <BaseCard isGrid={isGrid}>
       {card.card_faces.map((face) => {
         const oracleText = italicizeReminderText(face.oracle_text);
         return (

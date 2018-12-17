@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { sortByCMC, sortByColour } from '../utils/sort';
 import { filterCardByMana } from '../utils/filter';
 import { media } from '../utils/theme';
@@ -39,8 +39,8 @@ class Main extends Component {
     this.setState({ sets });
   }
 
-  setManaFilter = (mana) => {
-    mana = mana.toUpperCase();
+  setManaFilter = (inputMana) => {
+    const mana = inputMana.toUpperCase();
     this.setState(prevState => ({
       filters: {
         ...prevState.filters,
@@ -108,8 +108,32 @@ class Main extends Component {
 
   storeCards = (data) => {
     const cards = data.data.map((card) => {
-      const { image_uris, name, id, colors, cmc, mana_cost, oracle_text, card_faces } = card;
-      return { image_uris, name, id, colors, cmc, mana_cost, oracle_text, card_faces };
+      const {
+        image_uris,
+        name,
+        id,
+        colors,
+        cmc,
+        mana_cost,
+        oracle_text,
+        type_line,
+        power,
+        toughness,
+        card_faces,
+      } = card;
+      return {
+        image_uris,
+        name,
+        id,
+        colors,
+        cmc,
+        mana_cost,
+        oracle_text,
+        type_line,
+        power,
+        toughness,
+        card_faces,
+      };
     });
     this.setState({ cards }, () => {
       this.filterCards();
@@ -118,7 +142,9 @@ class Main extends Component {
 
   render() {
     const { className } = this.props;
-    const { sets, cardsToShow, isGrid, filters: { sortBy } } = this.state;
+    const {
+      sets, cardsToShow, isGrid, filters: { sortBy },
+    } = this.state;
     return (
       <main className={className}>
         <Navigation
