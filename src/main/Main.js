@@ -4,7 +4,7 @@ import { sortByCMC, sortByColour } from '../utils/sort';
 import { filterCardByMana } from '../utils/filter';
 import { media } from '../utils/theme';
 import Navigation from './navigation/Navigation';
-import Cards from './cards/Cards';
+import CardList from './cards/CardList';
 import dummyData from '../data.json';
 
 class Main extends Component {
@@ -130,7 +130,7 @@ class Main extends Component {
           sortBy={sortBy}
           isGrid={isGrid}
         />
-        <Cards
+        <CardList
           cards={cardsToShow}
           isGrid={isGrid}
         />
