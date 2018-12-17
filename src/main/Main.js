@@ -7,6 +7,20 @@ import Navigation from './navigation/Navigation';
 import CardList from './cards/CardList';
 import dummyData from '../data.json';
 
+
+const checkDesiredCard = (oracleText, typeLine) => {
+  if (typeLine === 'Instant') {
+    return true;
+  }
+  // scan through oracle_text and look for exactly 'Flash'
+  const flashRegex = /\bFlash\b/;
+  const found = oracleText.match(flashRegex);
+  if (found) {
+    return true;
+  }
+  return false;
+};
+
 class Main extends Component {
   state = {
     cards: [],
@@ -121,19 +135,22 @@ class Main extends Component {
         toughness,
         card_faces,
       } = card;
-      return {
-        image_uris,
-        name,
-        id,
-        colors,
-        cmc,
-        mana_cost,
-        oracle_text,
-        type_line,
-        power,
-        toughness,
-        card_faces,
-      };
+      const addCard = checkDesiredCard(oracle_text, type_line);
+      if (addCard) {
+        return {
+          image_uris,
+          name,
+          id,
+          colors,
+          cmc,
+          mana_cost,
+          oracle_text,
+          type_line,
+          power,
+          toughness,
+          card_faces,
+        };
+      }
     });
     this.setState({ cards }, () => {
       this.filterCards();
