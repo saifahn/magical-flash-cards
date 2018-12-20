@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { media, text } from '../../utils/theme';
 
 const Selector = styled.select`
@@ -35,13 +36,15 @@ const Selector = styled.select`
 
 class SetSelector extends Component {
   handleSetChange = (e) => {
-    this.props.handleSetChange(e.target.value);
+    const { handleSetChange } = this.props;
+    handleSetChange(e.target.value);
   }
 
   render() {
+    const { sets } = this.props;
     return (
       <Selector className="some-class" onChange={this.handleSetChange}>
-        {this.props.sets.map(set => (
+        {sets.map(set => (
           <option key={set.code} value={set.code}>
             {set.name}
           </option>
@@ -51,23 +54,9 @@ class SetSelector extends Component {
   }
 }
 
-// const SetSelector = styled(Selector)`
-//   border: 1px solid #ccc;
-//   width: 120px;
-//   border-radius: 0;
-//   background: rgba(0, 0, 0, 0.1);
-
-// select {
-//   margin: 50px;
-//   width: 150px;
-//   padding: 5px 35px 5px 5px;
-//   font-size: 16px;
-//   border: 1px solid #ccc;
-//   height: 34px;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   }
-// `;
+SetSelector.propTypes = {
+  handleSetChange: PropTypes.func.isRequired,
+  sets: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default SetSelector;
