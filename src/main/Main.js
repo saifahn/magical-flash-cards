@@ -1,25 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { sortByCMC, sortByColour } from '../utils/sort';
-import { filterCardByMana } from '../utils/filter';
+import { filterCardByMana, isDesired } from '../utils/filter';
 import { media } from '../utils/theme';
 import Navigation from './navigation/Navigation';
 import CardList from './cards/CardList';
 import dummyData from '../data.json';
-
-
-const checkDesiredCard = (oracleText, typeLine) => {
-  if (typeLine === 'Instant') {
-    return true;
-  }
-  // scan through oracle_text and look for exactly 'Flash'
-  const flashRegex = /\bFlash\b/;
-  const found = oracleText.match(flashRegex);
-  if (found) {
-    return true;
-  }
-  return false;
-};
 
 class Main extends Component {
   state = {
@@ -121,22 +107,24 @@ class Main extends Component {
   }
 
   storeCards = (data) => {
-    const cards = data.data.map((card) => {
-      const {
-        image_uris,
-        name,
-        id,
-        colors,
-        cmc,
-        mana_cost,
-        oracle_text,
-        type_line,
-        power,
-        toughness,
-        card_faces,
-      } = card;
-      const addCard = checkDesiredCard(oracle_text, type_line);
-      if (addCard) {
+    const cards = data.data
+      .filter(card => (
+        isDesired(card.oracle_text, card.type_line)
+      ))
+      .map((card) => {
+        const {
+          image_uris,
+          name,
+          id,
+          colors,
+          cmc,
+          mana_cost,
+          oracle_text,
+          type_line,
+          power,
+          toughness,
+          card_faces,
+        } = card;
         return {
           image_uris,
           name,
@@ -150,8 +138,7 @@ class Main extends Component {
           toughness,
           card_faces,
         };
-      }
-    });
+      });
     this.setState({ cards }, () => {
       this.filterCards();
     });
