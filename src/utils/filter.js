@@ -28,6 +28,20 @@ const formatManaCostToColorObject = (cost) => {
   return manaObject;
 };
 
+const calculateManaAmount = (cost) => {
+  const formattedCost = cost.replace(/[{}]/g, '');
+  const matchRE = /(\d+)?(\w+)?/;
+  const matched = formattedCost.match(matchRE);
+  const genericMana = matched[1];
+  const colouredMana = matched[2];
+  if (!genericMana) {
+    return matched[0].length;
+  }
+  let sum = Number(genericMana);
+  sum += colouredMana ? colouredMana.length : 0;
+  return sum;
+};
+
 export const filterCardByMana = (card, mana) => {
   /**
    * @param card: the card to be filtered
@@ -46,4 +60,25 @@ export const filterCardByMana = (card, mana) => {
     }
   }
   return true;
+};
+
+export const filterSplitCard = (card, mana) => {
+  card.card_faces.forEach((face) => {
+    if (face.type_line !== 'Instant') {
+      return false;
+    }
+    const filterCMC = mana.length;
+    if (filterCMC < calculateManaAmount(face.mana_cost)) {
+      return false;
+    }
+    const cardCost = formatManaCostToColorObject(face.mana_cost);
+    const manaCost = formatManaCostToColorObject(mana);
+    const colors = Object.keys(cardCost);
+    for (let i = 0, n = colors.length; i < n; i += 1) {
+      if (cardCost[colors[i]] > manaCost[colors[i]]) {
+        return false;
+      }
+    }
+    return true;
+  });
 };

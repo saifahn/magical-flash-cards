@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { sortByCMC, sortByColour } from '../utils/sort';
-import { filterCardByMana, isDesired } from '../utils/filter';
+import { filterCardByMana, isDesired, filterSplitCard } from '../utils/filter';
 import { media } from '../utils/theme';
 import Navigation from './navigation/Navigation';
 import CardList from './cards/CardList';
@@ -86,7 +86,9 @@ class Main extends Component {
     let cardsToShow = cards.slice();
     if (mana) {
       cardsToShow = cardsToShow.filter(card => (
-        filterCardByMana(card, mana)
+        card.card_faces
+          ? filterSplitCard(card, mana)
+          : filterCardByMana(card, mana)
       ));
     }
     if (sortBy.indexOf('colour') !== -1) {
