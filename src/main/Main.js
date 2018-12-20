@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { sortByCMC, sortByColour } from '../utils/sort';
 import { filterCardByMana, isDesired } from '../utils/filter';
 import { media } from '../utils/theme';
@@ -35,7 +36,15 @@ class Main extends Component {
     const upperBound = new Date().toISOString().slice(0, 10);
     const lowerBound = (upperBound.slice(0, 4) - 5).toString();
     const fetched = data.data;
-    const sets = fetched.filter(set => (set.set_type === 'expansion' || set.set_type === 'core' || set.set_type === 'masters') && set.released_at > lowerBound && set.released_at < upperBound);
+    const sets = fetched.filter(
+      set => (
+        set.set_type === 'expansion'
+        || set.set_type === 'core'
+        || set.set_type === 'masters'
+      )
+      && set.released_at > lowerBound
+      && set.released_at < upperBound,
+    );
     this.setState({ sets });
   }
 
@@ -113,30 +122,30 @@ class Main extends Component {
       ))
       .map((card) => {
         const {
-          image_uris,
-          name,
-          id,
-          colors,
+          card_faces,
           cmc,
+          colors,
+          id,
+          image_uris,
           mana_cost,
+          name,
           oracle_text,
-          type_line,
           power,
           toughness,
-          card_faces,
+          type_line,
         } = card;
         return {
-          image_uris,
-          name,
-          id,
-          colors,
+          card_faces,
           cmc,
+          colors,
+          id,
+          image_uris,
           mana_cost,
+          name,
           oracle_text,
-          type_line,
           power,
           toughness,
-          card_faces,
+          type_line,
         };
       });
     this.setState({ cards }, () => {
@@ -168,6 +177,10 @@ class Main extends Component {
     );
   }
 }
+
+Main.propTypes = {
+  className: PropTypes.string.isRequired,
+};
 
 export default styled(Main)`
   display: flex;

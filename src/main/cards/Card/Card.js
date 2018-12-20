@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { media, text } from '../../../utils/theme';
 import { italicizeReminderText } from '../../../utils/text-alter';
 
@@ -55,6 +56,22 @@ export const Card = (props) => {
   );
 };
 
+Card.propTypes = {
+  card: PropTypes.shape({
+    cmc: PropTypes.number,
+    colors: PropTypes.arrayOf(PropTypes.string),
+    id: PropTypes.string,
+    image_uris: PropTypes.objectOf(PropTypes.string),
+    mana_cost: PropTypes.string,
+    name: PropTypes.string,
+    oracle_text: PropTypes.string,
+    power: PropTypes.string,
+    toughness: PropTypes.string,
+    type_line: PropTypes.string,
+  }).isRequired,
+  isGrid: PropTypes.bool.isRequired,
+};
+
 export const SplitCard = (props) => {
   const { card, isGrid } = props;
   return (
@@ -62,7 +79,7 @@ export const SplitCard = (props) => {
       {card.card_faces.map((face) => {
         const oracleText = italicizeReminderText(face.oracle_text);
         return (
-          <Fragment>
+          <Fragment key={`${card.id}-${face.name}`}>
             <CardHeader>
               <h4 className="c-card-items__name">{face.name}</h4>
               <ManaCost className="c-card-items__mana-cost">{face.mana_cost}</ManaCost>
@@ -71,8 +88,21 @@ export const SplitCard = (props) => {
             <p className="c-card-items__text" dangerouslySetInnerHTML={oracleText} />
           </Fragment>
         );
-      })
-      }
+      })}
     </BaseCard>
   );
+};
+
+SplitCard.propTypes = {
+  card: PropTypes.shape({
+    card_faces: PropTypes.arrayOf(PropTypes.object),
+    cmc: PropTypes.number,
+    colors: PropTypes.arrayOf(PropTypes.string),
+    id: PropTypes.string,
+    image_uris: PropTypes.objectOf(PropTypes.string),
+    mana_cost: PropTypes.string,
+    name: PropTypes.string,
+    type_line: PropTypes.string,
+  }).isRequired,
+  isGrid: PropTypes.bool.isRequired,
 };

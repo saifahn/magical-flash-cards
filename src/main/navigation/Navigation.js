@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { media, text } from '../../utils/theme';
 import ManaInput from './ManaInput';
 import SortToggle, { ToggleButton } from './SortToggle';
@@ -40,13 +41,13 @@ const ToggleHeader = styled.p`
 
 const Navigation = ({
   className,
-  setManaFilter,
-  toggleSort,
-  toggleGrid,
   handleSetChange,
+  isGrid,
+  setManaFilter,
   sets,
   sortBy,
-  isGrid
+  toggleGrid,
+  toggleSort,
 }) => (
   <div className={className}>
     <ManaInput setManaFilter={setManaFilter} />
@@ -100,10 +101,20 @@ const Navigation = ({
   </div>
 );
 
+Navigation.propTypes = {
+  className: PropTypes.string.isRequired,
+  handleSetChange: PropTypes.func.isRequired,
+  isGrid: PropTypes.bool.isRequired,
+  setManaFilter: PropTypes.func.isRequired,
+  sets: PropTypes.arrayOf(PropTypes.object).isRequired,
+  sortBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  toggleGrid: PropTypes.func.isRequired,
+  toggleSort: PropTypes.func.isRequired,
+};
+
 export default styled(Navigation)`
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: auto;
-  /* max-width: 400px; */
 `;

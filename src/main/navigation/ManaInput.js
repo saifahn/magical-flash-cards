@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { media, text } from '../../utils/theme';
 
 
@@ -32,22 +33,23 @@ const Input = styled('input')`
 `;
 
 export default class ManaInput extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   onManaChange = (e) => {
-    this.props.setManaFilter(e.target.value);
+    const { setManaFilter } = this.props;
+    setManaFilter(e.target.value);
   }
 
   render() {
+    const placeholder = 'type a mana cost e.g. WWBBB';
     return (
       <Input
         type="text"
         onChange={this.onManaChange}
-        placeholder="type a mana cost e.g. WWBBB"
+        placeholder={placeholder}
       />
     );
   }
 }
 
+ManaInput.propTypes = {
+  setManaFilter: PropTypes.func.isRequired,
+};

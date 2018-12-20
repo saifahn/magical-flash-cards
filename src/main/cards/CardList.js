@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { media } from '../../utils/theme';
 import { Card, SplitCard } from './Card/Card';
 
@@ -24,6 +25,14 @@ const CardWrapper = (props) => {
       }
     </div>
   );
+};
+
+CardWrapper.propTypes = {
+  card: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  isGrid: PropTypes.bool.isRequired,
+  hasMultipleFaces: PropTypes.bool.isRequired,
 };
 
 const StyledCardWrapper = styled(CardWrapper)`
@@ -62,6 +71,7 @@ const CardList = (props) => {
           const hasMultipleFaces = !!card.card_faces;
           return (
             <StyledCardWrapper
+              key={card.id}
               card={card}
               isGrid={isGrid}
               hasMultipleFaces={hasMultipleFaces}

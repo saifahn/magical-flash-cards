@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { media, text } from '../../utils/theme';
 
 export const ToggleButton = styled('button')`
@@ -58,14 +59,9 @@ export default class SortToggle extends Component {
   }
 }
 
-
-
-
-// const SortToggle = props => (
-//   <button
-//     onClick={props.toggleSort}
-//     className="c-sort-button"
-//   >
-//     sort by {props.sorter}
-//   </button>
-// );
+SortToggle.propTypes = {
+  toggleSort: PropTypes.func.isRequired,
+  sorter: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  sortBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
