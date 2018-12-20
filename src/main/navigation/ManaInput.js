@@ -33,9 +33,21 @@ const Input = styled('input')`
 `;
 
 export default class ManaInput extends Component {
-  onManaChange = (e) => {
+  handleKeyDown = (e) => {
+    e.preventDefault();
     const { setManaFilter } = this.props;
-    setManaFilter(e.target.value);
+    const pressed = e.key.toUpperCase();
+    const validMana = 'WUBRGC';
+    let { value } = e.target;
+    if (pressed === 'BACKSPACE') {
+      value = value.slice(0, value.length - 1);
+    } else if (validMana.includes(pressed)) {
+      value += pressed;
+    } else {
+      console.log('Invalid character');
+    }
+    e.target.value = value;
+    setManaFilter(value);
   }
 
   render() {
@@ -43,7 +55,7 @@ export default class ManaInput extends Component {
     return (
       <Input
         type="text"
-        onChange={this.onManaChange}
+        onKeyDown={this.handleKeyDown}
         placeholder={placeholder}
       />
     );
