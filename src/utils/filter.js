@@ -33,14 +33,7 @@ export const filterCardByMana = (card, mana) => {
    * @param card: the card to be filtered
    * @param mana: state.filters.mana
    */
-  // if the mana has a generic number
-  const genericNum = mana.match(/\d/);
-  let filterCMC;
-  if (genericNum) {
-    filterCMC = (genericNum.length - 1) + parseInt(genericNum, 10);
-  } else {
-    filterCMC = mana.length;
-  }
+  const filterCMC = mana.length;
   if (filterCMC < card.cmc) {
     return false;
   }
