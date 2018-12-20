@@ -1,4 +1,15 @@
-export const a = 2;
+export const isDesired = (oracleText, typeLine) => {
+  if (typeLine.includes('Instant')) {
+    return true;
+  }
+  // scan through oracle_text and look for exactly 'Flash'
+  const flashRegex = /\bFlash\b/;
+  const found = oracleText.match(flashRegex);
+  if (found) {
+    return true;
+  }
+  return false;
+};
 
 const formatManaCostToColorObject = (cost) => {
   const re = /[\d{}]/g;

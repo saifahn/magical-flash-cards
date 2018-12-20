@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { sortByCMC, sortByColour } from '../utils/sort';
-import { filterCardByMana } from '../utils/filter';
+import { filterCardByMana, isDesired } from '../utils/filter';
 import { media } from '../utils/theme';
 import Navigation from './navigation/Navigation';
 import CardList from './cards/CardList';
@@ -107,34 +107,38 @@ class Main extends Component {
   }
 
   storeCards = (data) => {
-    const cards = data.data.map((card) => {
-      const {
-        image_uris,
-        name,
-        id,
-        colors,
-        cmc,
-        mana_cost,
-        oracle_text,
-        type_line,
-        power,
-        toughness,
-        card_faces,
-      } = card;
-      return {
-        image_uris,
-        name,
-        id,
-        colors,
-        cmc,
-        mana_cost,
-        oracle_text,
-        type_line,
-        power,
-        toughness,
-        card_faces,
-      };
-    });
+    const cards = data.data
+      .filter(card => (
+        isDesired(card.oracle_text, card.type_line)
+      ))
+      .map((card) => {
+        const {
+          image_uris,
+          name,
+          id,
+          colors,
+          cmc,
+          mana_cost,
+          oracle_text,
+          type_line,
+          power,
+          toughness,
+          card_faces,
+        } = card;
+        return {
+          image_uris,
+          name,
+          id,
+          colors,
+          cmc,
+          mana_cost,
+          oracle_text,
+          type_line,
+          power,
+          toughness,
+          card_faces,
+        };
+      });
     this.setState({ cards }, () => {
       this.filterCards();
     });
