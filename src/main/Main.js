@@ -42,8 +42,7 @@ class Main extends Component {
         || set.set_type === 'core'
         || set.set_type === 'masters'
       )
-      && set.released_at > lowerBound
-      && set.released_at < upperBound,
+      && set.released_at > lowerBound,
     );
     this.setState({ sets });
   }
