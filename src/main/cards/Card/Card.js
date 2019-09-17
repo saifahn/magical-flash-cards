@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { media, text } from '../../../utils/theme';
-import { italicizeReminderText } from '../../../utils/text-alter';
+import formatText from '../../../utils/text-alter';
 
 const BaseCard = styled.div`
   font-family: 'Inconsolata', monospace;
@@ -51,7 +51,7 @@ export const Card = (props) => {
         <ManaCost className="c-card-items__mana-cost">{card.mana_cost}</ManaCost>
       </CardHeader>
       <p>{card.type_line}</p>
-      <p className="c-card-items__text" dangerouslySetInnerHTML={italicizeReminderText(card.oracle_text)} />
+      <p className="c-card-items__text" dangerouslySetInnerHTML={formatText(card.oracle_text)} />
     </BaseCard>
   );
 };
@@ -77,7 +77,7 @@ export const SplitCard = (props) => {
   return (
     <BaseCard isGrid={isGrid}>
       {card.card_faces.map((face) => {
-        const oracleText = italicizeReminderText(face.oracle_text);
+        const oracleText = formatText(face.oracle_text);
         return (
           <Fragment key={`${card.id}-${face.name}`}>
             <CardHeader>
