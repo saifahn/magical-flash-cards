@@ -1,5 +1,6 @@
 .c-brand {
   display: flex;
   justify-content: center;
-  font-family: 'Inconsolata', serif;
+  font-family: 'Lora', serif;
+  font-weight: 400;
 }
