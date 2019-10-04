@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { sortByCMC, sortByColour } from '../utils/sort';
-import { filterCardByMana, isDesired, filterSplitCard } from '../utils/filter';
+import { canBeCast, isDesired } from '../utils/filter';
 import { media } from '../utils/theme';
 import Navigation from './navigation/Navigation';
 import CardList from './cards/CardList';
@@ -84,11 +84,7 @@ class Main extends Component {
     // get a copy of this.state.cards as value rather than reference
     let cardsToShow = cards.slice();
     if (mana) {
-      cardsToShow = cardsToShow.filter(card => (
-        card.card_faces
-          ? filterSplitCard(card, mana)
-          : filterCardByMana(card, mana)
-      ));
+      cardsToShow = cardsToShow.filter(card => canBeCast(card, mana));
     }
     if (sortBy.indexOf('colour') !== -1) {
       cardsToShow = sortByColour(cardsToShow);
