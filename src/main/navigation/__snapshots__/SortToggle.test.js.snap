@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SortToggle renders correctly 1`] = `
-<button
+<styled.button
   className="c-sort-button"
+  isSelected={false}
   onClick={[Function]}
->
-  sort by 
-</button>
+/>
 `;
