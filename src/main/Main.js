@@ -21,14 +21,18 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    this.getSets();
     this.storeCards(dummyData);
+    this.getSets();
   }
 
-  getSets = () => {
+  // TODO: refactor to be a set-up function
+  getSets = async () => {
     fetch('https://api.scryfall.com/sets')
       .then(response => response.json())
-      .then(data => this.setSets(data))
+      .then(async (data) => {
+        await this.setSets(data);
+        this.handleSetChange(this.state.sets[0].code);
+      })
       .catch(error => console.log(error));
   }
 
@@ -100,7 +104,7 @@ class Main extends Component {
   }
 
   handleSetChange = (val) => {
-    let url = 'https://api.scryfall.com/cards/search?q=%28o%3Aflash+or+t%3Ainstant%29+s%3A';
+    let url = 'https://api.scryfall.com/cards/search?q=is%3Abooster+%28o%3Aflash+or+t%3Ainstant%29+s%3A';
     url += val;
     this.loadSet(url);
   }
