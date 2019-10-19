@@ -14,6 +14,7 @@ const BaseCard = styled.div`
   margin-bottom: 0.5rem;
   border-left: 4px solid ${props => props.theme.primary || '#5a114d'};
   color: #333;
+  width: 100%;
 
   ${media.sm`
     border-left: 5px solid #5a114d;
@@ -42,6 +43,11 @@ const ManaCost = styled.h4`
   margin-left: auto;
 `;
 
+const PowTough = styled.p`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export const Card = (props) => {
   const { card, isGrid } = props;
   return (
@@ -52,6 +58,9 @@ export const Card = (props) => {
       </CardHeader>
       <p>{card.type_line}</p>
       <p className="c-card-items__text" dangerouslySetInnerHTML={formatText(card.oracle_text)} />
+      {card.power && card.toughness && (
+        <PowTough>{card.power} / {card.toughness}</PowTough>
+      )}
     </BaseCard>
   );
 };
@@ -86,6 +95,9 @@ export const SplitCard = (props) => {
             </CardHeader>
             <p>{face.type_line}</p>
             <p className="c-card-items__text" dangerouslySetInnerHTML={oracleText} />
+            {face.power && face.toughness && (
+              <PowTough>{face.power} / {face.toughness}</PowTough>
+            )}
           </Fragment>
         );
       })}
