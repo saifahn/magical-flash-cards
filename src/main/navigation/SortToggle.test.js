@@ -1,17 +1,15 @@
 /* eslint-env jest */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import SortToggle from './SortToggle';
 
-let toggleSortSpy;
-let wrapper;
-
-beforeEach(() => {
-  toggleSortSpy = jest.fn();
-  // wrapper = shallow(<SortToggle/>);
-});
-
 test('SortToggle renders correctly', () => {
-  wrapper = shallow(<SortToggle />);
+  const props = {
+    sorter: 'test',
+    sortBy: [],
+    toggleSort: jest.fn(),
+    children: '',
+  };
+  const wrapper = shallow(<SortToggle {...props} />);
   expect(wrapper).toMatchSnapshot();
 });
